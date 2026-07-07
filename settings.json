@@ -1,0 +1,537 @@
+{
+  // ── CODING MODE (quiet: no lint, no error lines) ──
+  // "typescript.validate.enable": false,
+  // "javascript.validate.enable": false,
+  // "editor.renderValidationDecorations": "off",
+  // "errorLens.enabled": false,
+
+  // ── REVIEW MODE (full diagnostics) ──
+  "typescript.validate.enable": true,
+  "javascript.validate.enable": true,
+  "editor.renderValidationDecorations": "on",
+  "errorLens.enabled": true,
+
+  // ─────────────────────────────────────────────────────────
+  // THEME & ICONS
+  // ─────────────────────────────────────────────────────────
+  "workbench.colorTheme": "Dracula Theme Soft",
+  "workbench.productIconTheme": "fluent-icons",
+  "scm.diffDecorationsGutterVisibility": "always",
+  "workbench.sideBar.location": "right",
+  "vim.startInInsertMode": false,
+  "vim.disableExtension": false,
+
+  // ─────────────────────────────────────────────────────────
+  // SEMANTIC TOKEN COLORS (TypeScript — wins over TextMate)
+  // ─────────────────────────────────────────────────────────
+  "editor.semanticTokenColorCustomizations": {
+    "[Dracula Theme Soft]": {
+      "rules": {
+        // Functions & methods → green #62e884
+        "function": { "foreground": "#62e884" },
+        "method": { "foreground": "#62e884" },
+        "function.defaultLibrary": { "foreground": "#62e884" },
+        "method.defaultLibrary": { "foreground": "#62e884" },
+        "class.defaultLibrary": { "foreground": "#62e884", "italic": false },
+
+        // // Variables (let/var) → cyan #8be9fd
+        // "variable.declaration.local": { "foreground": "#8be9fd" },
+        // "variable.other.readwrite": { "foreground": "#8be9fd" },
+
+        // Variable declarations (const/let/var) → purple #bd93f9
+        "variable.declaration": { "foreground": "#bd93f9" },
+        "variable.declaration.local": { "foreground": "#bd93f9" },
+        "variable.declaration.readonly": { "foreground": "#bd93f9" },
+        "variable.declaration.readonly.local": { "foreground": "#bd93f9" },
+
+        // Variable usages (references) → cyan #8be9fd
+        "variable": { "foreground": "#7fdff4" },
+        "variable.readonly": { "foreground": "#7fdff4" },
+        "variable.local": { "foreground": "#7fdff4" },
+        "variable.readonly.local": { "foreground": "#7fdff4" },
+
+        // Properties (defs + access) → off-white #efefef
+        "property.declaration": { "foreground": "#efefef" },
+        "property.declaration.readonly": { "foreground": "#efefef" },
+        "property": { "foreground": "#efefef" },
+        "property.readonly": { "foreground": "#efefef" },
+        "property.defaultLibrary": { "foreground": "#efefef" },
+        "property.defaultLibrary.readonly": { "foreground": "#efefef" },
+
+        // Types, interfaces, enums → teal #53dac1
+        "type": { "foreground": "#9bc4e2", "bold": true },
+        "typeParameter": { "foreground": "#9bc4e2", "bold": true },
+        "enum": { "foreground": "#9bc4e2", "bold": true },
+        "interface": { "foreground": "#9bc4e2", "italic": false, "bold": true },
+        "interface.defaultLibrary": {
+          "foreground": "#9bc4e2",
+          "bold": true,
+          "italic": false,
+        },
+      },
+    },
+  },
+
+  // ─────────────────────────────────────────────────────────
+  // TEXTMATE TOKEN COLORS (fallback when semantic doesn't apply)
+  // ─────────────────────────────────────────────────────────
+  "editor.tokenColorCustomizations": {
+    "[Dracula Theme Soft]": {
+      "textMateRules": [
+        // Comments → muted purple #9988bb
+        {
+          "scope": ["comment", "punctuation.definition.comment"],
+          "settings": { "foreground": "#9988bb", "fontStyle": "" },
+        },
+        {
+          "scope": ["entity.name.type.class"],
+          "settings": { "foreground": "#62e884", "fontStyle": "bold" },
+        },
+        // Strip italics from types / params / JSX attrs (no color change)
+        {
+          "scope": [
+            "variable.parameter",
+            "entity.name.type",
+            "support.type.primitive",
+            "support.type.builtin",
+            "meta.type.annotation.ts",
+            "support.class.component.tsx",
+            "entity.other.attribute-name.tsx",
+            "variable.language.this",
+          ],
+          "settings": { "fontStyle": "" },
+        },
+
+        // Strings → muted yellow #ddd683
+        {
+          "scope": "string",
+          "settings": { "foreground": "#ddd683" },
+        },
+
+        // Primitive type keywords (string, number, boolean) → bright teal #80ffe8
+        // Note: brighter than semantic teal #53dac1 — intentional for non-TS files
+        {
+          "scope": ["support.type.primitive", "support.type.builtin"],
+          "settings": { "foreground": "#9bc4e2" },
+        },
+
+        // Language constants (true/false/null/undefined) → off-white italic #ded8d8
+        {},
+
+        {
+          "scope": [
+            "keyword.operator.logical",
+            "keyword.operator.comparison",
+            "keyword.operator.relational",
+          ],
+          "settings": { "foreground": "#f8c5ff", "fontStyle": "bold" },
+        },
+        // Numbers → pure white #ffffff
+        {
+          "scope": ["constant.numeric.decimal", "constant.numeric"],
+          "settings": { "foreground": "#dcdf53" },
+        },
+
+        // JSONC property names → off-white #efefef (matches semantic property color)
+        {
+          "scope": [
+            "support.type.property-name.json.comments",
+            "punctuation.support.type.property-name.begin.json.comments",
+            "punctuation.support.type.property-name.end.json.comments",
+          ],
+          "settings": { "foreground": "#efefef" },
+        },
+
+        // Mutable variables (non-TS fallback) → cyan #78d7ed
+        {
+          "scope": [
+            "variable.other.readwrite",
+            "variable.other.constant.object",
+          ],
+          "settings": { "foreground": "#78d7ed" },
+        },
+
+        // Built-in vars (this, super, etc.) → pink #e668af
+        {
+          "scope": ["support.variable", "variable.language.this.ts"],
+          "settings": { "foreground": "#e668af" },
+        },
+
+        // Object properties (non-TS fallback) → off-white #efefef
+        {
+          "scope": [
+            "variable.other.property",
+            "support.constant.property",
+            "support.variable.property",
+          ],
+          "settings": { "foreground": "#efefef" },
+        },
+
+        // JSX/HTML attribute names → steel blue #b8c8f0
+        {
+          "scope": "entity.other.attribute-name",
+          "settings": { "foreground": "#b8c8f0" },
+        },
+
+        // Functions, React components, JSX tags (non-TS fallback) → green #62e884
+        {
+          "scope": [
+            "support.function",
+            "support.class.component",
+            "entity.name.function",
+            "support.class.builtin",
+            "entity.name.tag.tsx",
+            "entity.name.tag.js.jsx",
+          ],
+          "settings": { "foreground": "#62e884" },
+        },
+      ],
+    },
+  },
+
+  // ─────────────────────────────────────────────────────────
+  // WORKBENCH COLOR CUSTOMIZATIONS (UI chrome)
+  //
+  // Color palette in use:
+  //   Editor bg          #282a36  (Dracula Soft default)
+  //   Chrome bg (dark)   #22212c  (status bar, title bar inactive, sidebar headers)
+  //   Sidebar bg         #262833  (slightly darker than editor)
+  //   Borders / muted    #44475a, #6272a4
+  //   Foreground (main)  #f8f8f2
+  //   Foreground (mute)  #c5c5d0, #92a2d4
+  //   Accent purple      #9580ff  (selections, word highlights, line nums, hovers, minimap)
+  //   Diagnostics        #ff9580 (error), #ffca80 (warn), #92a2d4 (info), #8aff80 (hint)
+  // ─────────────────────────────────────────────────────────
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#282a36",
+    "titleBar.activeForeground": "#f8f8f2",
+    "titleBar.inactiveBackground": "#22212c",
+    "titleBar.inactiveForeground": "#6272a4",
+    "titleBar.border": "#44475a",
+    "breadcrumb.foreground": "#d8d4eafd",
+    "activityBar.border": "#22212c",
+    "sideBar.background": "#262833",
+    "sideBar.foreground": "#b2b2d0",
+    "sideBarSectionHeader.background": "#22212c",
+    "sideBarSectionHeader.foreground": "#92a2d4",
+    "sideBarSectionHeader.border": "#92a2d4",
+    "statusBar.background": "#22212c",
+    "statusBar.foreground": "#6272a4",
+    "statusBar.noFolderBackground": "#22212c",
+    "statusBar.debuggingBackground": "#22212c",
+    "statusBar.debuggingForeground": "#6272a4",
+    "editor.lineHighlightBackground": "#9580ff08",
+    "editor.lineHighlightBorder": "#00000000",
+    "editor.selectionBackground": "#9580ff40",
+    "editor.selectionHighlightBackground": "#9580ff25",
+    "editor.foldBackground": "#282a3610",
+    "editor.wordHighlightBackground": "#9580ff18",
+    "editor.wordHighlightBorder": "#9580ff60",
+    "editor.wordHighlightStrongBackground": "#9580ff30",
+    "editor.wordHighlightStrongBorder": "#9580ff90",
+    "editorLineNumber.foreground": "#44475a",
+    "editorLineNumber.activeForeground": "#9580ff",
+    "editorInlayHint.foreground": "#6b5f8a",
+    "editorInlayHint.background": "#00000000",
+    "editorHoverWidget.background": "#22212c",
+    "editorHoverWidget.foreground": "#f8f8f2",
+    "editorHoverWidget.border": "#9580ff40",
+    "editorHoverWidget.statusBarBackground": "#282a36",
+    "editorHoverWidget.highlightForeground": "#9580ff",
+    "minimap.selectionHighlight": "#9580ffff",
+    "minimap.findMatchHighlight": "#ffffa5ff",
+    "minimap.errorHighlight": "#ff958080",
+    "minimap.warningHighlight": "#ffca8080",
+    "minimapSlider.background": "#9580ff30",
+    "minimapSlider.hoverBackground": "#9580ff50",
+    "minimapSlider.activeBackground": "#9580ff70",
+    "errorLens.errorBackground": "#ff958005",
+    "errorLens.errorForeground": "#ff95803b",
+    "errorLens.warningBackground": "#ffca8005",
+    "errorLens.warningForeground": "#ffca802e",
+    "errorLens.infoBackground": "#92a2d405",
+    "errorLens.infoForeground": "#92a2d488",
+    "errorLens.hintBackground": "#8aff8005",
+    "errorLens.hintForeground": "#8aff8088",
+  },
+
+  // ─────────────────────────────────────────────────────────
+  // FONT & TYPOGRAPHY
+  // ─────────────────────────────────────────────────────────
+  "editor.fontFamily": "JetBrains Mono, monospace",
+  // "editor.fontFamily": "DejaVu Sans Mono, monospace",
+  // "editor.fontFamily": "Inter, monospace",
+  // "editor.fontFamily": "Google Sans Code",
+
+  // "editor.fontFamily": "Geist Mono, monospace",
+  // "editor.fontFamily": "Maple Mono, monospace",
+  // "editor.fontFamily": "Ubuntu Mono, monospace",
+  // "editor.fontFamily": "Cascadia Code, monospace",
+  // "editor.fontFamily": "Monaspace Neon, monospace",
+  // "editor.fontFamily": "Monaspace Radon, monospace",
+  // "editor.fontLigatures": "'calt', 'ss03'",
+  // "editor.fontLigatures": true,
+  "editor.fontSize": 13.5,
+  // "editor.lineHeight": 1.6,
+
+  // ─────────────────────────────────────────────────────────
+  // EDITOR: APPEARANCE
+  // ─────────────────────────────────────────────────────────
+  "editor.lineNumbers": "relative",
+  "editor.wordWrap": "bounded",
+  "editor.wordWrapColumn": 200,
+  "editor.renderWhitespace": "trailing",
+  "editor.renderLineHighlight": "all",
+  "editor.semanticHighlighting.enabled": true,
+  "editor.occurrencesHighlight": "multiFile",
+  "editor.roundedSelection": true,
+  "editor.linkedEditing": true,
+  "editor.bracketPairColorization.enabled": true,
+  "editor.guides.bracketPairs": "active",
+  "editor.guides.indentation": false,
+  "editor.guides.highlightActiveIndentation": true,
+  "editor.foldingHighlight": "#272a3a", // dim purple-grey, slightly lighter than editor bg
+  "editor.definitionLinkOpensInPeek": false,
+  "editor.unfoldOnCursorMove": false,
+  "editor.stickyScroll.maxLineCount": 1,
+  "diffEditor.renderSideBySide": true,
+
+  // ─────────────────────────────────────────────────────────
+  // EDITOR: CURSOR & SCROLL
+  // ─────────────────────────────────────────────────────────
+  "editor.cursorBlinking": "smooth",
+  "editor.cursorSmoothCaretAnimation": "on",
+  "editor.cursorWidth": 2,
+  "editor.cursorSurroundingLines": 999,
+  "editor.smoothScrolling": true,
+  "editor.fastScrollSensitivity": 15,
+  "editor.scrollbar.horizontal": "auto",
+  "editor.scrollbar.verticalScrollbarSize": 6,
+  "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
+  "editor.overviewRulerBorder": true,
+  "editor.hideCursorInOverviewRuler": false,
+
+  // ─────────────────────────────────────────────────────────
+  // EDITOR: INDENTATION
+  // ─────────────────────────────────────────────────────────
+  "editor.tabSize": 2,
+  "editor.insertSpaces": true,
+  "editor.indentSize": "tabSize",
+
+  // ─────────────────────────────────────────────────────────
+  // EDITOR: MINIMAP
+  // ─────────────────────────────────────────────────────────
+  "editor.minimap.renderCharacters": false,
+  "editor.minimap.size": "fit",
+  "editor.minimap.scale": 1,
+  "editor.minimap.maxColumn": 80,
+  "editor.minimap.showSlider": "always",
+
+  // ─────────────────────────────────────────────────────────
+  // EDITOR: HOVER & INLAY HINTS
+  // ─────────────────────────────────────────────────────────
+  "editor.hover.enabled": true,
+  "editor.hover.delay": 10,
+  "editor.hover.hidingDelay": 5000,
+  "editor.hover.sticky": true,
+  "editor.hover.above": false,
+  "editor.inlayHints.enabled": "on",
+  "debug.inlineValues": true,
+
+  // ─────────────────────────────────────────────────────────
+  // FORMATTING
+  // ─────────────────────────────────────────────────────────
+  "editor.formatOnSave": true,
+  "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "prettier.bracketSameLine": true,
+
+  // ─────────────────────────────────────────────────────────
+  // TYPESCRIPT / JAVASCRIPT
+  // ─────────────────────────────────────────────────────────
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+
+  // ─────────────────────────────────────────────────────────
+  // TABS
+  // ─────────────────────────────────────────────────────────
+  "workbench.editor.wrapTabs": true,
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.highlightModifiedTabs": true,
+  "workbench.editor.enablePreview": false,
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.decorations.badges": true,
+  "workbench.editor.decorations.colors": true,
+  "workbench.editor.tabActionCloseVisibility": false,
+  "workbench.editor.labelFormat": "short",
+  "workbench.editor.splitSizing": "distribute",
+
+  // ─────────────────────────────────────────────────────────
+  // EXPLORER & FILE TREE
+  // ─────────────────────────────────────────────────────────
+  "explorer.confirmDelete": false,
+  "explorer.compactFolders": false,
+  "explorer.autoReveal": false,
+  "explorer.openEditors.visible": 0,
+  "explorer.decorations.badges": true,
+  "explorer.decorations.colors": true,
+  "explorer.sortOrder": "type",
+
+  // ─────────────────────────────────────────────────────────
+  // FILE NESTING
+  // ─────────────────────────────────────────────────────────
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.expand": false,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.js, ${capture}.d.ts, ${capture}.test.ts",
+    "*.tsx": "${capture}.test.tsx, ${capture}.stories.tsx",
+    "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, .npmrc",
+    "tsconfig.json": "tsconfig.*.json",
+    ".env": ".env.*, .envrc",
+    "*.css": "${capture}.module.css",
+  },
+
+  // ─────────────────────────────────────────────────────────
+  // BREADCRUMBS
+  // ─────────────────────────────────────────────────────────
+  "breadcrumbs.showFunctions": true,
+  "breadcrumbs.showVariables": false,
+
+  // ─────────────────────────────────────────────────────────
+  // SEARCH
+  // ─────────────────────────────────────────────────────────
+  "search.showLineNumbers": true,
+  "search.smartCase": true,
+  "search.seedWithNearestWord": true,
+
+  // ─────────────────────────────────────────────────────────
+  // TERMINAL
+  // ─────────────────────────────────────────────────────────
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.cursorWidth": 1,
+  "terminal.integrated.mouseWheelZoom": true,
+  "terminal.integrated.defaultLocation": "editor",
+
+  // ─────────────────────────────────────────────────────────
+  // WORKBENCH & WINDOW
+  // ─────────────────────────────────────────────────────────
+  "workbench.list.smoothScrolling": true,
+  "workbench.enableExperiments": false,
+  "window.titleBarStyle": "custom",
+  "window.title": "${activeFolderMedium} - (${activeEditorShort})",
+  "window.zoomLevel": 1,
+  "window.zoomPerWindow": false,
+
+  // ─────────────────────────────────────────────────────────
+  // ZEN MODE
+  // ─────────────────────────────────────────────────────────
+  "zenMode.centerLayout": true,
+  "zenMode.fullScreen": false,
+  "zenMode.showTabs": "none",
+  "zenMode.hideActivityBar": false,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideLineNumbers": false,
+
+  // ─────────────────────────────────────────────────────────
+  // SCREENCAST MODE
+  // ─────────────────────────────────────────────────────────
+  "screencastMode.verticalOffset": 2,
+  "screencastMode.fontSize": 20,
+  "screencastMode.mouseIndicatorColor": "#00000000", // fully transparent
+  "screencastMode.keyboardOverlayTimeout": 5000,
+
+  // ─────────────────────────────────────────────────────────
+  // ACCESSIBILITY
+  // ─────────────────────────────────────────────────────────
+  "accessibility.dimUnfocused.enabled": false,
+  "accessibility.dimUnfocused.opacity": 0.85,
+  "accessibility.accessibleView.closeOnKeyPress": false,
+
+  // ─────────────────────────────────────────────────────────
+  // VIM
+  //
+  // Mode color map ([bg, fg]):
+  //   normal   → chrome dark + muted blue   (inactive feel)
+  //   insert   → dark green + bright green  (action mode)
+  //   visual   → dark amber + orange        (selection)
+  //   v-line   → dark amber + orange        (matches visual)
+  //   v-block  → dark red + red             (most aggressive selection)
+  //   replace  → dark magenta + pink        (destructive overwrite)
+  //   search   → dark blue + steel blue     (lookup mode)
+  // ─────────────────────────────────────────────────────────
+  "vim.handleKeys": {
+    "<D-S-[>": false,
+    "<D-d>": false,
+    "<D-S-]>": false,
+    "<D-c>": false,
+    "<C-c>": false,
+  },
+  "vim.statusBarColorControl": true,
+  "vim.statusBarColors.normal": ["#22212c", "#6272a4"],
+  "vim.statusBarColors.insert": ["#32634a", "#8aff80"],
+  "vim.statusBarColors.visual": ["#2d2415", "#ffca80"],
+  "vim.statusBarColors.visualline": ["#2d2415", "#ffca80"],
+  "vim.statusBarColors.visualblock": ["#2d1e14", "#ff9580"],
+  "vim.statusBarColors.replace": ["#2d1522", "#ff92df"],
+  "vim.statusBarColors.searchinprogressmode": ["#15202d", "#92a2d4"],
+  "vim.showcmd": true,
+  "vim.mouseSelectionGoesIntoVisualMode": false,
+  "vim.foldfix": true,
+
+  // ─────────────────────────────────────────────────────────
+  // CURSOR AI
+  // ─────────────────────────────────────────────────────────
+  "cursor.cpp.disabledLanguages": [
+    "markdown",
+    "plaintext",
+    "typescriptreact",
+    "typescript",
+  ],
+  "claudeCode.preferredLocation": "panel",
+
+  // ─────────────────────────────────────────────────────────
+  // DATETIME (status bar)
+  // ─────────────────────────────────────────────────────────
+  "dateTime.showAMPM": true,
+  "dateTime.showSeconds": true,
+  "dateTime.showDayOfMonth": true,
+  "dateTime.showDayOfWeek": true,
+  "dateTime.showMonth": true,
+  "dateTime.use24HourClock": false,
+  "dateTime.padDays": true,
+  "dateTime.padHours": false,
+
+  // ─────────────────────────────────────────────────────────
+  // BACKGROUND EXTENSION
+  // ─────────────────────────────────────────────────────────
+  "background.editor": {
+    "useFront": true,
+    "style": {
+      "background-position": "0px 0px",
+      "background-size": "cover",
+      "opacity": 0.025,
+    },
+    "images": [
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAuNSAwVjI0TTAgMC41SDI0IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iOTAwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+Cg==",
+    ],
+    "interval": 0,
+    "random": false,
+  },
+  "window.autoDetectColorScheme": false,
+  "workbench.tree.renderIndentGuides": "always",
+  "workbench.view.showQuietly": {
+    "workbench.panel.output": false,
+  },
+  // "workbench.fontAliasing": "auto",
+  "workbench.iconTheme": "vscode-great-icons",
+  "workbench.tree.indent": 12,
+  "explorer.confirmDragAndDrop": false,
+  "background.enabled": true,
+  "editor.guides.bracketPairsHorizontal": true,
+  "breadcrumbs.showProperties": false,
+  "breadcrumbs.symbolPath": "off",
+}
