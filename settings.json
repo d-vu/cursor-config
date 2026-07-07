@@ -66,10 +66,10 @@
         "interface.defaultLibrary": {
           "foreground": "#9bc4e2",
           "bold": true,
-          "italic": false,
-        },
-      },
-    },
+          "italic": false
+        }
+      }
+    }
   },
 
   // ─────────────────────────────────────────────────────────
@@ -81,11 +81,11 @@
         // Comments → muted purple #9988bb
         {
           "scope": ["comment", "punctuation.definition.comment"],
-          "settings": { "foreground": "#9988bb", "fontStyle": "" },
+          "settings": { "foreground": "#9988bb", "fontStyle": "" }
         },
         {
           "scope": ["entity.name.type.class"],
-          "settings": { "foreground": "#62e884", "fontStyle": "bold" },
+          "settings": { "foreground": "#62e884", "fontStyle": "bold" }
         },
         // Strip italics from types / params / JSX attrs (no color change)
         {
@@ -97,22 +97,22 @@
             "meta.type.annotation.ts",
             "support.class.component.tsx",
             "entity.other.attribute-name.tsx",
-            "variable.language.this",
+            "variable.language.this"
           ],
-          "settings": { "fontStyle": "" },
+          "settings": { "fontStyle": "" }
         },
 
         // Strings → muted yellow #ddd683
         {
           "scope": "string",
-          "settings": { "foreground": "#ddd683" },
+          "settings": { "foreground": "#ddd683" }
         },
 
         // Primitive type keywords (string, number, boolean) → bright teal #80ffe8
         // Note: brighter than semantic teal #53dac1 — intentional for non-TS files
         {
           "scope": ["support.type.primitive", "support.type.builtin"],
-          "settings": { "foreground": "#9bc4e2" },
+          "settings": { "foreground": "#9bc4e2" }
         },
 
         // Language constants (true/false/null/undefined) → off-white italic #ded8d8
@@ -122,14 +122,14 @@
           "scope": [
             "keyword.operator.logical",
             "keyword.operator.comparison",
-            "keyword.operator.relational",
+            "keyword.operator.relational"
           ],
-          "settings": { "foreground": "#f8c5ff", "fontStyle": "bold" },
+          "settings": { "foreground": "#f8c5ff", "fontStyle": "bold" }
         },
         // Numbers → pure white #ffffff
         {
           "scope": ["constant.numeric.decimal", "constant.numeric"],
-          "settings": { "foreground": "#dcdf53" },
+          "settings": { "foreground": "#dcdf53" }
         },
 
         // JSONC property names → off-white #efefef (matches semantic property color)
@@ -137,24 +137,24 @@
           "scope": [
             "support.type.property-name.json.comments",
             "punctuation.support.type.property-name.begin.json.comments",
-            "punctuation.support.type.property-name.end.json.comments",
+            "punctuation.support.type.property-name.end.json.comments"
           ],
-          "settings": { "foreground": "#efefef" },
+          "settings": { "foreground": "#efefef" }
         },
 
         // Mutable variables (non-TS fallback) → cyan #78d7ed
         {
           "scope": [
             "variable.other.readwrite",
-            "variable.other.constant.object",
+            "variable.other.constant.object"
           ],
-          "settings": { "foreground": "#78d7ed" },
+          "settings": { "foreground": "#78d7ed" }
         },
 
         // Built-in vars (this, super, etc.) → pink #e668af
         {
           "scope": ["support.variable", "variable.language.this.ts"],
-          "settings": { "foreground": "#e668af" },
+          "settings": { "foreground": "#e668af" }
         },
 
         // Object properties (non-TS fallback) → off-white #efefef
@@ -162,15 +162,15 @@
           "scope": [
             "variable.other.property",
             "support.constant.property",
-            "support.variable.property",
+            "support.variable.property"
           ],
-          "settings": { "foreground": "#efefef" },
+          "settings": { "foreground": "#efefef" }
         },
 
         // JSX/HTML attribute names → steel blue #b8c8f0
         {
           "scope": "entity.other.attribute-name",
-          "settings": { "foreground": "#b8c8f0" },
+          "settings": { "foreground": "#b8c8f0" }
         },
 
         // Functions, React components, JSX tags (non-TS fallback) → green #62e884
@@ -181,12 +181,12 @@
             "entity.name.function",
             "support.class.builtin",
             "entity.name.tag.tsx",
-            "entity.name.tag.js.jsx",
+            "entity.name.tag.js.jsx"
           ],
-          "settings": { "foreground": "#62e884" },
-        },
-      ],
-    },
+          "settings": { "foreground": "#62e884" }
+        }
+      ]
+    }
   },
 
   // ─────────────────────────────────────────────────────────
@@ -252,7 +252,7 @@
     "errorLens.infoBackground": "#92a2d405",
     "errorLens.infoForeground": "#92a2d488",
     "errorLens.hintBackground": "#8aff8005",
-    "errorLens.hintForeground": "#8aff8088",
+    "errorLens.hintForeground": "#8aff8088"
   },
 
   // ─────────────────────────────────────────────────────────
@@ -391,7 +391,7 @@
     "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml, .npmrc",
     "tsconfig.json": "tsconfig.*.json",
     ".env": ".env.*, .envrc",
-    "*.css": "${capture}.module.css",
+    "*.css": "${capture}.module.css"
   },
 
   // ─────────────────────────────────────────────────────────
@@ -468,7 +468,7 @@
     "<D-d>": false,
     "<D-S-]>": false,
     "<D-c>": false,
-    "<C-c>": false,
+    "<C-c>": false
   },
   "vim.statusBarColorControl": true,
   "vim.statusBarColors.normal": ["#22212c", "#6272a4"],
@@ -489,7 +489,7 @@
     "markdown",
     "plaintext",
     "typescriptreact",
-    "typescript",
+    "typescript"
   ],
   "claudeCode.preferredLocation": "panel",
 
@@ -513,18 +513,18 @@
     "style": {
       "background-position": "0px 0px",
       "background-size": "cover",
-      "opacity": 0.025,
+      "opacity": 0.025
     },
     "images": [
-      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAuNSAwVjI0TTAgMC41SDI0IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iOTAwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+Cg==",
+      "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAuNSAwVjI0TTAgMC41SDI0IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iOTAwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+Cg=="
     ],
     "interval": 0,
-    "random": false,
+    "random": false
   },
   "window.autoDetectColorScheme": false,
   "workbench.tree.renderIndentGuides": "always",
   "workbench.view.showQuietly": {
-    "workbench.panel.output": false,
+    "workbench.panel.output": false
   },
   // "workbench.fontAliasing": "auto",
   "workbench.iconTheme": "vscode-great-icons",
@@ -533,5 +533,5 @@
   "background.enabled": true,
   "editor.guides.bracketPairsHorizontal": true,
   "breadcrumbs.showProperties": false,
-  "breadcrumbs.symbolPath": "off",
+  "breadcrumbs.symbolPath": "off"
 }
