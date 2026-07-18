@@ -1,12 +1,20 @@
 [
-  // ── Navigation ───────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════════════════
+  // NAVIGATION — Editor & History
+  // ════════════════════════════════════════════════════════════════════════════════
   { "key": "ctrl+-", "command": "workbench.action.navigateBack" },
   { "key": "ctrl+shift+-", "command": "workbench.action.navigateForward" },
 
-  // ── Quick Open ───────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════════════════
+  // QUICK OPEN & SEARCH
+  // ════════════════════════════════════════════════════════════════════════════════
   { "key": "cmd+p", "command": "workbench.action.quickOpen" },
 
-  // ── Tabs: Cycle ──────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════════════════
+  // TABS — Cycle, Jump, & Management
+  // ════════════════════════════════════════════════════════════════════════════════
+
+  // ── Cycle between tabs ──
   { "key": "ctrl+tab", "command": "workbench.action.nextEditor" },
   { "key": "ctrl+shift+tab", "command": "workbench.action.previousEditor" },
   {
@@ -20,7 +28,7 @@
     "when": "terminalFocus",
   },
 
-  // ── Tabs: Jump to Index ──────────────────────────────────
+  // ── Jump to tab by index (cmd+1 through cmd+9) ──
   { "key": "cmd+1", "command": "workbench.action.openEditorAtIndex1" },
   { "key": "cmd+2", "command": "workbench.action.openEditorAtIndex2" },
   { "key": "cmd+3", "command": "workbench.action.openEditorAtIndex3" },
@@ -31,7 +39,7 @@
   { "key": "cmd+8", "command": "workbench.action.openEditorAtIndex8" },
   { "key": "cmd+9", "command": "workbench.action.openEditorAtIndex9" },
 
-  // ── Tabs: Manage ─────────────────────────────────────────
+  // ── Tab management: pin, close groups ──
   {
     "key": "cmd+alt+p",
     "command": "workbench.action.pinEditor",
@@ -46,18 +54,21 @@
   { "key": "cmd+alt+l", "command": "workbench.action.closeEditorsToTheLeft" },
   { "key": "cmd+alt+r", "command": "workbench.action.closeEditorsToTheRight" },
 
-  // ── Splits: Create ───────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════════════════
+  // SPLITS — Create & Navigate
+  // ════════════════════════════════════════════════════════════════════════════════
+
+  // ── Create splits ──
   { "key": "cmd+alt+\\", "command": "workbench.action.splitEditor" },
   { "key": "cmd+shift+d", "command": "workbench.action.splitEditorDown" },
-  // { "key": "cmd+d", "command": "workbench.action.splitEditorRight" },
 
-  // ── Splits: Focus ────────────────────────────────────────
+  // ── Focus split by group (ctrl+1 through ctrl+4) ──
   { "key": "ctrl+1", "command": "workbench.action.focusFirstEditorGroup" },
   { "key": "ctrl+2", "command": "workbench.action.focusSecondEditorGroup" },
   { "key": "ctrl+3", "command": "workbench.action.focusThirdEditorGroup" },
   { "key": "ctrl+4", "command": "workbench.action.focusFourthEditorGroup" },
 
-  // ── Splits: Move Editor ──────────────────────────────────
+  // ── Move editors within/across splits ──
   {
     "key": "cmd+alt+left",
     "command": "workbench.action.moveEditorLeftInGroup",
@@ -72,12 +83,16 @@
     "command": "workbench.action.moveEditorToRightGroup",
   },
 
-  // ── Terminal ─────────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════════════════
+  // TERMINAL
+  // ════════════════════════════════════════════════════════════════════════════════
   { "key": "ctrl+`", "command": "workbench.action.terminal.toggleTerminal" },
 
-  // ════ FOLDING — Cursor-safe, no setContext ════
+  // ════════════════════════════════════════════════════════════════════════════════
+  // FOLDING — Cursor-safe, integrates with vim keybinds (Ctrl+[ and Ctrl+] override vim)
+  // ════════════════════════════════════════════════════════════════════════════════
 
-  // ── Granular: native toggle at cursor (reverts itself) ──
+  // ── Granular: toggle at cursor position ──
   {
     "key": "ctrl+shift+[",
     "command": "editor.toggleFold",
@@ -89,10 +104,22 @@
     "when": "editorTextFocus && foldingEnabled",
   },
 
-  // ── Whole-file folds; ctrl+shift+0 is the universal revert
+  // ── Single fold/unfold (overrides vim) ──
+  {
+    "key": "ctrl+[",
+    "command": "editor.fold",
+    "when": "editorTextFocus && foldingEnabled",
+  },
+  {
+    "key": "ctrl+]",
+    "command": "editor.unfold",
+    "when": "editorTextFocus && foldingEnabled",
+  },
+
+  // ── Whole-file folds; ctrl+shift+0 is the universal revert ──
   {
     "key": "ctrl+shift+\\",
-    "command": "editor.foldAll",
+    "command": "editor.foldAllExcept",
     "when": "editorTextFocus && foldingEnabled",
   },
   {
@@ -116,12 +143,12 @@
     "when": "editorTextFocus && foldingEnabled",
   },
   {
-    "key": "ctrl+shift+0",
+    "key": "ctrl+0",
     "command": "editor.unfoldAll",
     "when": "editorTextFocus && foldingEnabled",
   },
 
-  // ── Marker regions: fold + its own revert ───────────────
+  // ── Marker regions: fold + its own revert ──
   {
     "key": "ctrl+shift+8",
     "command": "editor.foldAllMarkerRegions",
@@ -132,7 +159,10 @@
     "command": "editor.unfoldAllMarkerRegions",
     "when": "editorTextFocus && foldingEnabled",
   },
-  // ── Editing ──────────────────────────────────────────────
+
+  // ════════════════════════════════════════════════════════════════════════════════
+  // EDITING
+  // ════════════════════════════════════════════════════════════════════════════════
   {
     "key": "cmd+y",
     "command": "redo",
@@ -144,22 +174,28 @@
     "when": "editorTextFocus && !editorReadonly",
   },
 
-  // ── Git ──────────────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════════════════
+  // GIT
+  // ════════════════════════════════════════════════════════════════════════════════
   { "key": "cmd+shift+g", "command": "git.openChange" },
 
-  // ── UI Toggles ───────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════════════════
+  // UI TOGGLES & VISIBILITY
+  // ════════════════════════════════════════════════════════════════════════════════
   { "key": "cmd+\\", "command": "workbench.action.toggleSidebarVisibility" },
   { "key": "cmd+b", "command": "workbench.action.toggleActivityBarVisibility" },
   { "key": "cmd+m", "command": "editor.action.toggleMinimap" },
   { "key": "cmd+shift+t", "command": "workbench.action.selectTheme" },
   { "key": "cmd+shift+i", "command": "workbench.action.selectIconTheme" },
 
-  // ── Zoom ─────────────────────────────────────────────────
+  // ════════════════════════════════════════════════════════════════════════════════
+  // ZOOM & DIAGNOSTICS
+  // ════════════════════════════════════════════════════════════════════════════════
   { "key": "cmd+;", "command": "workbench.action.decreaseViewSize" },
   { "key": "cmd+'", "command": "workbench.action.increaseViewSize" },
   { "key": "cmd+0", "command": "workbench.action.zoomReset" },
 
-  // ── Diagnostics ──────────────────────────────────────────
+  // ── Toggle TypeScript/JavaScript diagnostics ──
   {
     "key": "cmd+shift+alt+e",
     "command": "settings.cycle",
@@ -179,36 +215,5 @@
       ],
     },
   },
-  { "key": "ctrl+0", "command": "-workbench.action.lastEditorInGroup" },
-  { "key": "ctrl+0", "command": "-workbench.action.focusSideBar" },
-  {
-    "key": "ctrl+\\",
-    "command": "editor.foldAllExcept",
-    "when": "editorTextFocus && foldingEnabled",
-  },
-  {
-    "key": "ctrl+0",
-    "command": "editor.unfoldAll",
-    "when": "editorTextFocus && foldingEnabled",
-  },
-  {
-    "key": "ctrl+[",
-    "command": "-extension.vim_ctrl+[",
-    "when": "editorTextFocus && vim.active && !inDebugRepl",
-  },
-  {
-    "key": "ctrl+]",
-    "command": "-extension.vim_ctrl+]",
-    "when": "editorTextFocus && vim.active && !inDebugRepl",
-  },
-  {
-    "key": "ctrl+[",
-    "command": "editor.fold",
-    "when": "editorTextFocus && foldingEnabled",
-  },
-  {
-    "key": "ctrl+]",
-    "command": "editor.unfold",
-    "when": "editorTextFocus && foldingEnabled",
-  },
+  { "key": "cmd+shift+g", "command": "workbench.view.scm" },
 ]
