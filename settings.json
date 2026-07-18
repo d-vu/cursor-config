@@ -2,122 +2,199 @@
   // ═════════════════════════════════════════════════════════
   // MODE TOGGLE — flip comments to switch
   // ═════════════════════════════════════════════════════════
-
   // ── CODING MODE (quiet: no lint, no error lines) ──
-  // "typescript.validate.enable": false,
-  // "javascript.validate.enable": false,
-  // "editor.renderValidationDecorations": "off",
-  // "errorLens.enabled": false,
-
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "editor.renderValidationDecorations": "off",
+  "errorLens.enabled": false,
+  "eslint.enable": false,
+  "editor.showUnused": false,
+  "editor.showDeprecated": false,
   // ── REVIEW MODE (full diagnostics) ──
-  "typescript.validate.enable": true,
-  "javascript.validate.enable": true,
-  "editor.renderValidationDecorations": "on",
-  "errorLens.enabled": true,
-
+  // "typescript.validate.enable": true,
+  // "javascript.validate.enable": true,
+  // "editor.renderValidationDecorations": "on",
+  // "errorLens.enabled": true,
+  // "problems.decorations.enabled": true,
   // ═════════════════════════════════════════════════════════
-  // PALETTE REFERENCE (single source of truth)
-  //
-  // Syntax colors:
-  //   Functions / methods / classes    #62e884  green
-  //   Variable declarations            #bd93f9  purple
-  //   Variable usages                  #7fdff4  cyan
-  //   Mutable vars (non-TS fallback)   #78d7ed  cyan (slightly deeper)
-  //   Properties                       #efefef  off-white
-  //   Types / interfaces / enums       #9bc4e2  powder blue, bold
-  //   Comments                         #9988bb  muted purple
-  //   Strings                          #ddd683  muted yellow
-  //   Numbers                          #dcdf53  yellow-green
-  //   Logical/comparison operators     #f8c5ff  pale pink, bold
-  //   Built-in vars (this, super)      #e668af  pink
-  //   JSX/HTML attribute names         #c9b6f5  lavender
-  //   React components / JSX tags      #ff9580  coral
-  //
-  // UI chrome:
-  //   Editor bg                        #282a36  (Dracula Soft default)
-  //   Chrome bg (dark)                 #22212c  (title bar inactive, sidebar headers, hovers)
-  //   Sidebar bg                       #262833
-  //   Borders / muted                  #44475a, #6272a4
-  //   Foreground (main)                #f8f8f2
-  //   Foreground (muted)               #b2b2d0, #92a2d4
-  //   Accent purple                    #9580ff  (selections, word highlights, line nums, minimap)
-  //   Status bar                       #32634a bg / #8aff80 fg  (green — matches vim insert)
-  //   Diagnostics                      #ff9580 error, #ffca80 warn, #92a2d4 info, #8aff80 hint
-  // ═════════════════════════════════════════════════════════
-
-  // ─────────────────────────────────────────────────────────
   // THEME & ICONS
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "workbench.colorTheme": "Dracula Theme Soft",
-  "workbench.productIconTheme": "bongocat",
-  "workbench.iconTheme": "vscode-great-icons",
-
-  // ─────────────────────────────────────────────────────────
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.iconTheme": "catppuccin-frappe",
+  // ═════════════════════════════════════════════════════════
   // SEMANTIC TOKEN COLORS (TypeScript — wins over TextMate)
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "editor.semanticTokenColorCustomizations": {
     "[Dracula Theme Soft]": {
       "rules": {
-        // Functions, methods, built-in classes → green
+        // ── Functions / methods / classes ──
         "function": { "foreground": "#62e884" },
         "method": { "foreground": "#62e884" },
         "function.defaultLibrary": { "foreground": "#62e884" },
         "method.defaultLibrary": { "foreground": "#62e884" },
         "class.defaultLibrary": { "foreground": "#62e884", "italic": false },
-
-        // Variable declarations (const/let/var) → purple
+        // ── Variable declarations ──
         "variable.declaration": { "foreground": "#bd93f9" },
         "variable.declaration.local": { "foreground": "#bd93f9" },
         "variable.declaration.readonly": { "foreground": "#bd93f9" },
         "variable.declaration.readonly.local": { "foreground": "#bd93f9" },
-
-        // Variable usages (references) → cyan
-        "variable": { "foreground": "#7fdff4" },
-        "variable.readonly": { "foreground": "#7fdff4" },
-        "variable.local": { "foreground": "#7fdff4" },
-        "variable.readonly.local": { "foreground": "#7fdff4" },
-
-        // Properties (defs + access) → off-white
-        "property.declaration": { "foreground": "#efefef" },
-        "property.declaration.readonly": { "foreground": "#efefef" },
-        "property": { "foreground": "#efefef" },
-        "property.readonly": { "foreground": "#efefef" },
-        "property.defaultLibrary": { "foreground": "#efefef" },
-        "property.defaultLibrary.readonly": { "foreground": "#efefef" },
-
-        // Types, interfaces, enums → powder blue, bold
-        "type": { "foreground": "#9bc4e2", "bold": true },
-        "typeParameter": { "foreground": "#9bc4e2", "bold": true },
-        "enum": { "foreground": "#9bc4e2", "bold": true },
-        "interface": { "foreground": "#9bc4e2", "italic": false, "bold": true },
+        // ── Object property access ──
+        "variable.other.object.property": { "foreground": "#f99393" },
+        // ── Variable usages (base intentionally omitted) ──
+        "variable.readonly": { "foreground": "#b3d4ff" },
+        "variable.local": { "foreground": "#b3d4ff" },
+        "variable.readonly.local": { "foreground": "#b3d4ff" },
+        // ── Declared properties ──
+        "property.declaration": { "foreground": "#8fe0d0" },
+        "property.declaration.readonly": { "foreground": "#8fe0d0" },
+        "property": { "foreground": "#8fe0d0" },
+        "property.readonly": { "foreground": "#8fe0d0" },
+        "property.defaultLibrary": { "foreground": "#8fe0d0" },
+        "property.defaultLibrary.readonly": { "foreground": "#8fe0d0" },
+        // ── Types / interfaces / enums ──
+        "type": { "foreground": "#e0b088", "bold": true },
+        "typeParameter": { "foreground": "#e0b088", "bold": true },
+        "enum": { "foreground": "#e0b088", "bold": true },
+        "interface": { "foreground": "#e0b088", "italic": false, "bold": true },
         "interface.defaultLibrary": {
-          "foreground": "#9bc4e2",
+          "foreground": "#e0b088",
           "bold": true,
           "italic": false,
         },
+        // ── Import aliases ──
+        "variable.other.readwrite.alias": { "foreground": "#bd93f9" },
       },
     },
   },
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // TEXTMATE TOKEN COLORS (fallback when semantic doesn't apply)
-  // ─────────────────────────────────────────────────────────
+  // Ordered to mirror the semantic roles above. Keep these in sync
+  // with the semantic hexes to avoid flicker on scroll.
+  // ═════════════════════════════════════════════════════════
   "editor.tokenColorCustomizations": {
     "[Dracula Theme Soft]": {
       "textMateRules": [
-        // Comments → muted purple
+        // ── Functions / built-in classes ──
         {
-          "scope": ["comment", "punctuation.definition.comment"],
-          "settings": { "foreground": "#9988bb", "fontStyle": "" },
+          "scope": [
+            "support.function",
+            "entity.name.function",
+            "support.class.builtin",
+          ],
+          "settings": { "foreground": "#62e884" },
         },
-
-        // Class names → green, bold
         {
           "scope": ["entity.name.type.class"],
           "settings": { "foreground": "#62e884", "fontStyle": "bold" },
         },
+        // ── Variable usages ──
+        {
+          "scope": [
+            "variable.other.readwrite",
+            "variable.other.constant.object",
+          ],
+          "settings": { "foreground": "#b3d4ff" },
+        },
+        // ── Object property access (matches semantic salmon) ──
+        {
+          "scope": ["variable.other.object.property"],
+          "settings": { "foreground": "#f99393" },
+        },
+        // ── Properties (incl. object-literal keys, to kill scroll flicker) ──
+        {
+          "scope": [
+            "variable.other.property",
+            "support.constant.property",
+            "support.variable.property",
+            "meta.object-literal.key",
+            "support.type.property-name",
+          ],
+          "settings": { "foreground": "#8fe0d0" },
+        },
+        // ── Built-in vars (this, super) ──
+        {
+          "scope": ["support.variable", "variable.language.this.ts"],
+          "settings": { "foreground": "#e668af" },
+        },
+        // ── Types / primitives ──
+        {
+          "scope": ["support.type.primitive", "support.type.builtin"],
+          "settings": { "foreground": "#d4b89c" },
+        },
+        // ── Parameters + control flow / async ──
+        {
+          "scope": ["variable.parameter"],
+          "settings": { "foreground": "#e6e3e3" },
+        },
+        {
+          "scope": [
+            "keyword.control.flow",
+            "storage.modifier.async",
+            "keyword.control.trycatch",
+            "keyword.control.conditional",
+            "keyword.control.loop",
+            "keyword.control.flow",
+          ],
+          "settings": { "foreground": "#ffb86c" },
+        },
 
-        // Strip italics from types / params / JSX attrs (no color change)
+        {
+          "scope": ["keyword.control.flow"],
+          "settings": { "foreground": "#ffb86c", "fontStyle": "italic" },
+        },
+        // ── Operators ──
+        {
+          "scope": [
+            "keyword.operator.logical",
+            "keyword.operator.comparison",
+            "keyword.operator.relational",
+          ],
+          "settings": { "foreground": "#f8c5ff", "fontStyle": "bold" },
+        },
+        // ── Strings ──
+        {
+          "scope": "string",
+          "settings": { "foreground": "#ddd683" },
+        },
+        // ── Numbers ──
+        {
+          "scope": ["constant.numeric.decimal", "constant.numeric"],
+          "settings": { "foreground": "#dcdf53" },
+        },
+        // ── JSX prop names (props passed to components) ──
+        {
+          "scope": [
+            "entity.other.attribute-name.tsx",
+            "entity.other.attribute-name.jsx",
+          ],
+          // "settings": { "foreground": "#6fd89a" },
+        },
+        // ── JSX attribute names (fallback / non-tsx) ──
+        {
+          "scope": "entity.other.attribute-name",
+          // "settings": { "foreground": "#6fd89a" },
+        },
+        // ── JSX child text ──
+        {
+          "scope": [
+            "meta.jsx.children.tsx",
+            "meta.jsx.children.js",
+            "meta.embedded.block",
+          ],
+          "settings": { "foreground": "#b2b2d0" },
+        },
+        // ── React components / JSX tags ──
+        {
+          "scope": ["support.class.component"],
+          "settings": { "foreground": "#ff9580" },
+        },
+        // ── Comments ──
+        {
+          "scope": ["comment", "punctuation.definition.comment"],
+          "settings": { "foreground": "#9988bb", "fontStyle": "" },
+        },
+        // ── Strip italics (no color change) ──
         {
           "scope": [
             "variable.parameter",
@@ -131,100 +208,12 @@
           ],
           "settings": { "fontStyle": "" },
         },
-
-        // Strings → muted yellow
-        {
-          "scope": "string",
-          "settings": { "foreground": "#ddd683" },
-        },
-
-        // Primitive type keywords (string, number, boolean) → powder blue
-        // Matches semantic type color for consistency in non-TS files
-        {
-          "scope": ["support.type.primitive", "support.type.builtin"],
-          "settings": { "foreground": "#9bc4e2" },
-        },
-
-        // Logical / comparison operators → pale pink, bold
-        {
-          "scope": [
-            "keyword.operator.logical",
-            "keyword.operator.comparison",
-            "keyword.operator.relational",
-          ],
-          "settings": { "foreground": "#f8c5ff", "fontStyle": "bold" },
-        },
-
-        // Numbers → yellow-green
-        {
-          "scope": ["constant.numeric.decimal", "constant.numeric"],
-          "settings": { "foreground": "#dcdf53" },
-        },
-
-        // JSONC property names → off-white (matches semantic property color)
-        {
-          "scope": [
-            "support.type.property-name.json.comments",
-            "punctuation.support.type.property-name.begin.json.comments",
-            "punctuation.support.type.property-name.end.json.comments",
-          ],
-          "settings": { "foreground": "#efefef" },
-        },
-
-        // Mutable variables (non-TS fallback) → cyan
-        {
-          "scope": [
-            "variable.other.readwrite",
-            "variable.other.constant.object",
-          ],
-          "settings": { "foreground": "#78d7ed" },
-        },
-
-        // Built-in vars (this, super, etc.) → pink
-        {
-          "scope": ["support.variable", "variable.language.this.ts"],
-          "settings": { "foreground": "#e668af" },
-        },
-
-        // Object properties (non-TS fallback) → off-white
-        {
-          "scope": [
-            "variable.other.property",
-            "support.constant.property",
-            "support.variable.property",
-          ],
-          "settings": { "foreground": "#efefef" },
-        },
-
-        // JSX/HTML attribute names → lavender
-        {
-          "scope": "entity.other.attribute-name",
-          "settings": { "foreground": "#c9b6f5" },
-        },
-
-        // Functions, built-in classes → green
-        {
-          "scope": [
-            "support.function",
-            "entity.name.function",
-            "support.class.builtin",
-          ],
-          "settings": { "foreground": "#62e884" },
-        },
-
-        // React components, JSX tags → coral
-        {
-          "scope": ["support.class.component"],
-          "settings": { "foreground": "#ff9580" },
-        },
       ],
     },
   },
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // WORKBENCH COLOR CUSTOMIZATIONS (UI chrome)
-  // See palette reference at top of file
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "workbench.colorCustomizations": {
     "editor.lineHighlightBorder": "#00000000",
     "editor.lineHighlightBackground": "#9580ff08",
@@ -276,11 +265,33 @@
     "errorLens.infoForeground": "#92a2d488",
     "errorLens.hintBackground": "#8aff8005",
     "errorLens.hintForeground": "#8aff8088",
+    "[Dracula Theme Soft]": {
+      "gitDecoration.deletedResourceForeground": "#ff5555",
+      "gitDecoration.renamedResourceForeground": "#8be9fd",
+      "gitDecoration.stageModifiedResourceForeground": "#ffb86c",
+      "gitDecoration.stageDeletedResourceForeground": "#ff5555",
+      "gitDecoration.conflictingResourceForeground": "#ff79c6",
+      "gitDecoration.ignoredResourceForeground": "#6272a4",
+      "gitDecoration.modifiedResourceForeground": "#c99862",
+      "gitDecoration.untrackedResourceForeground": "#6fa876",
+      "gitDecoration.addedResourceForeground": "#6fa876",
+      "tab.activeModifiedBorder": "#c99862",
+      "tab.inactiveModifiedBorder": "#6b5540",
+      "tab.activeForeground": "#f8f8f2",
+      "tab.inactiveForeground": "#8b93a7",
+      "tab.activeBorderTop": "#bd93f9",
+      "tab.activeBackground": "#2b2b3d",
+      "tab.inactiveBackground": "#22222e",
+      "tab.border": "#191a21",
+      "tab.hoverBackground": "#2f2f42",
+      "tab.hoverForeground": "#f8f8f2",
+      "tree.indentGuidesStroke": "#4d5066",
+      "tree.inactiveIndentGuidesStroke": "#33354a",
+    },
   },
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // FONT & TYPOGRAPHY
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "editor.fontFamily": "JetBrains Mono, monospace",
   "editor.fontSize": 13.5,
   // Alternates:
@@ -296,10 +307,9 @@
   // "editor.fontLigatures": "'calt', 'ss03'",
   // "editor.fontLigatures": true,
   // "editor.lineHeight": 1.6,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // EDITOR: APPEARANCE
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "editor.lineNumbers": "relative",
   "editor.wordWrap": "bounded",
   "editor.wordWrapColumn": 200,
@@ -319,10 +329,9 @@
   "editor.gotoLocation.multipleDefinitions": "goto",
   "diffEditor.renderSideBySide": true,
   "scm.diffDecorationsGutterVisibility": "always",
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // EDITOR: CURSOR & SCROLL
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "editor.cursorBlinking": "smooth",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorWidth": 1,
@@ -335,194 +344,80 @@
   "editor.scrollbar.ignoreHorizontalScrollbarInContentHeight": true,
   "editor.overviewRulerBorder": true,
   "editor.hideCursorInOverviewRuler": false,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // EDITOR: INDENTATION
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.indentSize": "tabSize",
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // EDITOR: MINIMAP
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "editor.minimap.renderCharacters": false,
   "editor.minimap.size": "fit",
   "editor.minimap.scale": 1,
   "editor.minimap.maxColumn": 80,
   "editor.minimap.showSlider": "always",
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // EDITOR: HOVER & INLAY HINTS
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "editor.hover.enabled": true,
-  "editor.hover.delay": 10,
-  "editor.hover.hidingDelay": 5000,
+  "editor.hover.delay": 500,
+  "editor.hover.hidingDelay": 8000,
   "editor.hover.sticky": true,
   "editor.hover.above": false,
   "editor.inlayHints.enabled": "on",
   "debug.inlineValues": true,
-
-  // ─────────────────────────────────────────────────────────
-  // EDITOR: RULERS (faint 2-col grid, cols 0–200)
-  // ─────────────────────────────────────────────────────────
-  // "editor.rulers": [
-  //   { "column": 0, "color": "#ffffff05" },
-  //   { "column": 2, "color": "#ffffff05" },
-  //   { "column": 4, "color": "#ffffff05" },
-  //   { "column": 6, "color": "#ffffff05" },
-  //   { "column": 8, "color": "#ffffff05" },
-  //   { "column": 10, "color": "#ffffff05" },
-  //   { "column": 12, "color": "#ffffff05" },
-  //   { "column": 14, "color": "#ffffff05" },
-  //   { "column": 16, "color": "#ffffff05" },
-  //   { "column": 18, "color": "#ffffff05" },
-  //   { "column": 20, "color": "#ffffff05" },
-  //   { "column": 22, "color": "#ffffff05" },
-  //   { "column": 24, "color": "#ffffff05" },
-  //   { "column": 26, "color": "#ffffff05" },
-  //   { "column": 28, "color": "#ffffff05" },
-  //   { "column": 30, "color": "#ffffff05" },
-  //   { "column": 32, "color": "#ffffff05" },
-  //   { "column": 34, "color": "#ffffff05" },
-  //   { "column": 36, "color": "#ffffff05" },
-  //   { "column": 38, "color": "#ffffff05" },
-  //   { "column": 40, "color": "#ffffff05" },
-  //   { "column": 42, "color": "#ffffff05" },
-  //   { "column": 44, "color": "#ffffff05" },
-  //   { "column": 46, "color": "#ffffff05" },
-  //   { "column": 48, "color": "#ffffff05" },
-  //   { "column": 50, "color": "#ffffff05" },
-  //   { "column": 52, "color": "#ffffff05" },
-  //   { "column": 54, "color": "#ffffff05" },
-  //   { "column": 56, "color": "#ffffff05" },
-  //   { "column": 58, "color": "#ffffff05" },
-  //   { "column": 60, "color": "#ffffff05" },
-  //   { "column": 62, "color": "#ffffff05" },
-  //   { "column": 64, "color": "#ffffff05" },
-  //   { "column": 66, "color": "#ffffff05" },
-  //   { "column": 68, "color": "#ffffff05" },
-  //   { "column": 70, "color": "#ffffff05" },
-  //   { "column": 72, "color": "#ffffff05" },
-  //   { "column": 74, "color": "#ffffff05" },
-  //   { "column": 76, "color": "#ffffff05" },
-  //   { "column": 78, "color": "#ffffff05" },
-  //   { "column": 80, "color": "#ffffff05" },
-  //   { "column": 82, "color": "#ffffff05" },
-  //   { "column": 84, "color": "#ffffff05" },
-  //   { "column": 86, "color": "#ffffff05" },
-  //   { "column": 88, "color": "#ffffff05" },
-  //   { "column": 90, "color": "#ffffff05" },
-  //   { "column": 92, "color": "#ffffff05" },
-  //   { "column": 94, "color": "#ffffff05" },
-  //   { "column": 96, "color": "#ffffff05" },
-  //   { "column": 98, "color": "#ffffff05" },
-  //   { "column": 100, "color": "#ffffff05" },
-  //   { "column": 102, "color": "#ffffff05" },
-  //   { "column": 104, "color": "#ffffff05" },
-  //   { "column": 106, "color": "#ffffff05" },
-  //   { "column": 108, "color": "#ffffff05" },
-  //   { "column": 110, "color": "#ffffff05" },
-  //   { "column": 112, "color": "#ffffff05" },
-  //   { "column": 114, "color": "#ffffff05" },
-  //   { "column": 116, "color": "#ffffff05" },
-  //   { "column": 118, "color": "#ffffff05" },
-  //   { "column": 120, "color": "#ffffff05" },
-  //   { "column": 122, "color": "#ffffff05" },
-  //   { "column": 124, "color": "#ffffff05" },
-  //   { "column": 126, "color": "#ffffff05" },
-  //   { "column": 128, "color": "#ffffff05" },
-  //   { "column": 130, "color": "#ffffff05" },
-  //   { "column": 132, "color": "#ffffff05" },
-  //   { "column": 134, "color": "#ffffff05" },
-  //   { "column": 136, "color": "#ffffff05" },
-  //   { "column": 138, "color": "#ffffff05" },
-  //   { "column": 140, "color": "#ffffff05" },
-  //   { "column": 142, "color": "#ffffff05" },
-  //   { "column": 144, "color": "#ffffff05" },
-  //   { "column": 146, "color": "#ffffff05" },
-  //   { "column": 148, "color": "#ffffff05" },
-  //   { "column": 150, "color": "#ffffff05" },
-  //   { "column": 152, "color": "#ffffff05" },
-  //   { "column": 154, "color": "#ffffff05" },
-  //   { "column": 156, "color": "#ffffff05" },
-  //   { "column": 158, "color": "#ffffff05" },
-  //   { "column": 160, "color": "#ffffff05" },
-  //   { "column": 162, "color": "#ffffff05" },
-  //   { "column": 164, "color": "#ffffff05" },
-  //   { "column": 166, "color": "#ffffff05" },
-  //   { "column": 168, "color": "#ffffff05" },
-  //   { "column": 170, "color": "#ffffff05" },
-  //   { "column": 172, "color": "#ffffff05" },
-  //   { "column": 174, "color": "#ffffff05" },
-  //   { "column": 176, "color": "#ffffff05" },
-  //   { "column": 178, "color": "#ffffff05" },
-  //   { "column": 180, "color": "#ffffff05" },
-  //   { "column": 182, "color": "#ffffff05" },
-  //   { "column": 184, "color": "#ffffff05" },
-  //   { "column": 186, "color": "#ffffff05" },
-  //   { "column": 188, "color": "#ffffff05" },
-  //   { "column": 190, "color": "#ffffff05" },
-  //   { "column": 192, "color": "#ffffff05" },
-  //   { "column": 194, "color": "#ffffff05" },
-  //   { "column": 196, "color": "#ffffff05" },
-  //   { "column": 198, "color": "#ffffff05" },
-  //   { "column": 200, "color": "#ffffff05" },
-  // ],
-
-  // Horizontal grid lines (via APC stylesheet injection)
-  "apc.stylesheet": {
-    ".view-line": "border-bottom: 1px solid #ffffff08;",
-  },
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // FORMATTING
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "editor.formatOnSave": true,
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "prettier.bracketSameLine": true,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // TYPESCRIPT / JAVASCRIPT
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "typescript.suggest.autoImports": true,
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // TABS
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "workbench.editor.wrapTabs": true,
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.highlightModifiedTabs": true,
   "workbench.editor.enablePreview": false,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "workbench.editor.decorations.badges": true,
-  "workbench.editor.decorations.colors": true,
   "workbench.editor.tabActionCloseVisibility": false,
-  "workbench.editor.labelFormat": "short",
+  "workbench.editor.labelFormat": "medium",
   "workbench.editor.splitSizing": "distribute",
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
+  // GIT & DIFF
+  // ═════════════════════════════════════════════════════════
+  "git.decorations.enabled": true,
+  "git.openDiffOnClick": false,
+  "problems.decorations.enabled": false,
+  "workbench.editor.decorations.colors": true,
+  // ═════════════════════════════════════════════════════════
   // EXPLORER & FILE TREE
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "explorer.confirmDelete": false,
   "explorer.confirmDragAndDrop": false,
   "explorer.compactFolders": false,
-  "explorer.autoReveal": false,
+  "explorer.autoReveal": true,
   "explorer.openEditors.visible": 0,
   "explorer.decorations.badges": true,
-  "explorer.decorations.colors": true,
+  "explorer.decorations.colors": false,
   "explorer.sortOrder": "type",
+  "workbench.tree.indent": 16,
   "workbench.tree.renderIndentGuides": "always",
-  "workbench.tree.indent": 12,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // FILE NESTING
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
   "explorer.fileNesting.patterns": {
@@ -533,48 +428,61 @@
     ".env": ".env.*, .envrc",
     "*.css": "${capture}.module.css",
   },
-
-  "breadcrumbs.enabled": true,
-  "breadcrumbs.showFunctions": false,
+  // ═════════════════════════════════════════════════════════
+  // BREADCRUMBS
+  // ═════════════════════════════════════════════════════════
+  "breadcrumbs.symbolPath": "on",
+  "breadcrumbs.showFunctions": true,
+  "breadcrumbs.showVariables": true,
+  "breadcrumbs.showConstants": true,
   "breadcrumbs.showClasses": true,
-  "breadcrumbs.showMethods": false,
-  "breadcrumbs.showVariables": false, // Hide useState/const clutter
-  "breadcrumbs.showConstants": false,
-  "breadcrumbs.showInterfaces": false,
-  "breadcrumbs.showStructs": false,
-  "breadcrumbs.showProperties": false,
-  "breadcrumbs.showTypeParameters": false,
+  "breadcrumbs.showMethods": true,
+  "breadcrumbs.showInterfaces": true,
+  "breadcrumbs.showArrays": false,
+  "breadcrumbs.showBooleans": false,
   "breadcrumbs.showEnums": false,
+  "breadcrumbs.showEnumMembers": false,
+  "breadcrumbs.showConstructors": false,
+  "breadcrumbs.showFields": false,
+  "breadcrumbs.showKeys": false,
+  "breadcrumbs.showNull": false,
+  "breadcrumbs.showNumbers": false,
+  "breadcrumbs.showObjects": false,
+  "breadcrumbs.showStrings": false,
+  "breadcrumbs.showStructs": false,
+  "breadcrumbs.showTypeParameters": false,
   "breadcrumbs.showEvents": false,
   "breadcrumbs.showOperators": false,
   "breadcrumbs.showPackages": false,
   "breadcrumbs.showModules": false,
   "breadcrumbs.showNamespaces": false,
-
-  // Outline panel
+  // ═════════════════════════════════════════════════════════
+  // OUTLINE
+  // ═════════════════════════════════════════════════════════
   "outline.icons": true,
   "outline.problems.enabled": false,
-  // ─────────────────────────────────────────────────────────
+  "outline.collapseItems": "alwaysCollapse",
+  "outline.showVariables": false,
+  // ═════════════════════════════════════════════════════════
   // SEARCH
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "search.showLineNumbers": true,
   "search.smartCase": true,
   "search.seedWithNearestWord": true,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // TERMINAL
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "terminal.integrated.cursorStyle": "line",
   "terminal.integrated.cursorBlinking": true,
   "terminal.integrated.cursorWidth": 1,
   "terminal.integrated.mouseWheelZoom": true,
   "terminal.integrated.defaultLocation": "editor",
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // WORKBENCH & WINDOW
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "workbench.sideBar.location": "right",
   "workbench.list.smoothScrolling": true,
+  "workbench.reduceMotion": "on",
   "workbench.enableExperiments": false,
   "workbench.view.showQuietly": {
     "workbench.panel.output": false,
@@ -585,44 +493,31 @@
   "window.zoomPerWindow": false,
   "window.zoomLevel": 1,
   "window.autoDetectColorScheme": false,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // ZEN MODE
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "zenMode.centerLayout": true,
   "zenMode.fullScreen": false,
   "zenMode.showTabs": "none",
   "zenMode.hideActivityBar": false,
   "zenMode.hideStatusBar": false,
   "zenMode.hideLineNumbers": false,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // SCREENCAST MODE
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "screencastMode.verticalOffset": 2,
   "screencastMode.fontSize": 20,
-  "screencastMode.mouseIndicatorColor": "#00000000", // fully transparent
+  "screencastMode.mouseIndicatorColor": "#00000000",
   "screencastMode.keyboardOverlayTimeout": 5000,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // ACCESSIBILITY
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "accessibility.dimUnfocused.enabled": false,
   "accessibility.dimUnfocused.opacity": 0.85,
   "accessibility.accessibleView.closeOnKeyPress": false,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // VIM
-  //
-  // Status bar mode colors ([bg, fg]):
-  //   normal   → chrome dark + muted blue   (inactive feel)
-  //   insert   → dark green + bright green  (action mode)
-  //   visual   → dark amber + orange        (selection)
-  //   v-line   → dark amber + orange        (matches visual)
-  //   v-block  → dark red + coral           (most aggressive selection)
-  //   replace  → dark magenta + pink        (destructive overwrite)
-  //   search   → dark blue + steel blue     (lookup mode)
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "vim.disableExtension": false,
   "vim.startInInsertMode": false,
   "vim.handleKeys": {
@@ -645,10 +540,9 @@
   "vim.mouseSelectionGoesIntoVisualMode": true,
   "vim.foldfix": true,
   "vim.hlsearch": true,
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   // CURSOR AI
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "cursor.cpp.disabledLanguages": [
     "markdown",
     "plaintext",
@@ -656,10 +550,36 @@
     "typescript",
   ],
   "claudeCode.preferredLocation": "panel",
-
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
+  // REMOTE SSH
+  // ═════════════════════════════════════════════════════════
+  "remote.SSH.remotePlatform": {
+    "daniel-macbook-pro": "macOS",
+    "daniels-macbook-pro": "macOS",
+    "daniels-macbook-pro.tail1c869e.ts.net": "macOS",
+  },
+  // ═════════════════════════════════════════════════════════
+  // GITLENS
+  // ═════════════════════════════════════════════════════════
+  "gitlens.plusFeatures.enabled": false,
+  "gitlens.views.branches.files.layout": "list",
+  "gitlens.views.branches.branches.layout": "list",
+  // ═════════════════════════════════════════════════════════
+  // EXTENSIONS (pets, comments, totaltypescript)
+  // ═════════════════════════════════════════════════════════
+  "better-comments.highlightPlainText": true,
+  "vscode-pets.throwBallWithMouse": true,
+  "vscode-pets.theme": "autumn",
+  "vscode-pets.petType": "dog",
+  "vscode-pets.petSize": "medium",
+  "vscode-pets.petColor": "warrior",
+  "totalTypeScript.hiddenTips": ["typing-function-parameters", "basic-types"],
+  "totalTypeScript.hideAllTips": true,
+  "totalTypeScript.hideBasicTips": false,
+  "symbols.hidesExplorerArrows": false,
+  // ═════════════════════════════════════════════════════════
   // DATETIME (status bar)
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
   "dateTime.showAMPM": true,
   "dateTime.showSeconds": true,
   "dateTime.showDayOfMonth": true,
@@ -668,19 +588,10 @@
   "dateTime.use24HourClock": false,
   "dateTime.padDays": true,
   "dateTime.padHours": false,
-
-  // ─────────────────────────────────────────────────────────
-  // BACKGROUND EXTENSION
-  // Enabled flag is on, but image config is commented out
-  // (extension had compatibility issues with recent Cursor versions)
-  // ─────────────────────────────────────────────────────────
+  // ═════════════════════════════════════════════════════════
+  // BACKGROUND EXTENSION (faint grid overlay)
+  // ═════════════════════════════════════════════════════════
   "background.enabled": true,
-  "remote.SSH.remotePlatform": {
-    "daniel-macbook-pro": "macOS",
-    "daniels-macbook-pro": "macOS",
-    "daniels-macbook-pro.tail1c869e.ts.net": "macOS",
-  },
-  "gitlens.plusFeatures.enabled": false,
   "background.editor": {
     "useFront": true,
     "style": {
@@ -694,38 +605,4 @@
     "interval": 0,
     "random": false,
   },
-  // "outline.collapseItems": "alwaysCollapse",
-  "outline.showFunctions": true,
-  "outline.showMethods": true,
-  "outline.showClasses": true,
-  "outline.showInterfaces": true,
-  "outline.showEnums": true,
-  "outline.showArrays": true,
-  "outline.showConstants": true,
-  "outline.showTypeParameters": true,
-  "outline.showStructs": true,
-  "outline.showFields": true,
-  "outline.showBooleans": false,
-  "outline.showConstructors": false,
-  "outline.showEnumMembers": false,
-  "outline.showEvents": false,
-  "outline.showFiles": false,
-  "outline.showKeys": false,
-  "outline.showNull": false,
-  "outline.showNumbers": false,
-  "outline.showObjects": true,
-  "outline.showOperators": false,
-  "outline.showPackages": false,
-  "outline.showProperties": false,
-  "outline.showStrings": false,
-  "outline.showVariables": false,
-  "gitlens.views.branches.files.layout": "list",
-  "gitlens.views.branches.branches.layout": "list",
-  "totalTypeScript.hiddenTips": ["typing-function-parameters", "basic-types"],
-  "better-comments.highlightPlainText": true,
-  "vscode-pets.throwBallWithMouse": true,
-  "vscode-pets.theme": "autumn",
-  "vscode-pets.petType": "dog",
-  "vscode-pets.petSize": "medium",
-  "vscode-pets.petColor": "warrior",
 }

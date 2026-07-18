@@ -116,7 +116,7 @@
     "when": "editorTextFocus && foldingEnabled",
   },
 
-  // ── Whole-file folds; ctrl+shift+0 is the universal revert ──
+  // ── Whole-file folds; ctrl+0 is the universal revert ──
   {
     "key": "ctrl+shift+\\",
     "command": "editor.foldAllExcept",
@@ -177,7 +177,12 @@
   // ════════════════════════════════════════════════════════════════════════════════
   // GIT
   // ════════════════════════════════════════════════════════════════════════════════
-  { "key": "cmd+shift+g", "command": "git.openChange" },
+  { "key": "cmd+shift+g", "command": "workbench.view.scm" },
+  {
+    "key": "cmd+shift+h",
+    "command": "git.openChange",
+    "when": "editorTextFocus",
+  },
 
   // ════════════════════════════════════════════════════════════════════════════════
   // UI TOGGLES & VISIBILITY
@@ -187,6 +192,10 @@
   { "key": "cmd+m", "command": "editor.action.toggleMinimap" },
   { "key": "cmd+shift+t", "command": "workbench.action.selectTheme" },
   { "key": "cmd+shift+i", "command": "workbench.action.selectIconTheme" },
+  {
+    "key": "cmd+shift+r",
+    "command": "workbench.files.action.showActiveFileInExplorer",
+  },
 
   // ════════════════════════════════════════════════════════════════════════════════
   // ZOOM & DIAGNOSTICS
@@ -215,5 +224,4 @@
       ],
     },
   },
-  { "key": "cmd+shift+g", "command": "workbench.view.scm" },
 ]
