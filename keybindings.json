@@ -63,10 +63,22 @@
   { "key": "cmd+shift+d", "command": "workbench.action.splitEditorDown" },
 
   // ── Focus split by group (ctrl+1 through ctrl+4) ──
-  { "key": "ctrl+1", "command": "workbench.action.focusFirstEditorGroup" },
-  { "key": "ctrl+2", "command": "workbench.action.focusSecondEditorGroup" },
-  { "key": "ctrl+3", "command": "workbench.action.focusThirdEditorGroup" },
-  { "key": "ctrl+4", "command": "workbench.action.focusFourthEditorGroup" },
+  {
+    "key": "ctrl+shift+1",
+    "command": "workbench.action.focusFirstEditorGroup",
+  },
+  {
+    "key": "ctrl+shift+2",
+    "command": "workbench.action.focusSecondEditorGroup",
+  },
+  {
+    "key": "ctrl+shift+3",
+    "command": "workbench.action.focusThirdEditorGroup",
+  },
+  {
+    "key": "ctrl+shift+4",
+    "command": "workbench.action.focusFourthEditorGroup",
+  },
 
   // ── Move editors within/across splits ──
   {
@@ -128,27 +140,37 @@
     "when": "editorTextFocus && foldingEnabled",
   },
   {
-    "key": "ctrl+shift+1",
+    "key": "ctrl+1",
     "command": "editor.foldLevel1",
     "when": "editorTextFocus && foldingEnabled",
   },
   {
-    "key": "ctrl+shift+2",
+    "key": "ctrl+2",
     "command": "editor.foldLevel2",
     "when": "editorTextFocus && foldingEnabled",
   },
   {
-    "key": "ctrl+shift+3",
+    "key": "ctrl+3",
     "command": "editor.foldLevel3",
     "when": "editorTextFocus && foldingEnabled",
   },
+  {
+    "key": "ctrl+4",
+    "command": "editor.foldLevel4",
+    "when": "editorTextFocus && foldingEnabled",
+  },
+
   {
     "key": "ctrl+0",
     "command": "editor.unfoldAll",
     "when": "editorTextFocus && foldingEnabled",
   },
 
-  // ── Marker regions: fold + its own revert ──
+  {
+    "key": "ctrl+\\",
+    "command": "editor.unfoldAll",
+    "when": "editorTextFocus && foldingEnabled",
+  }, // ── Marker regions: fold + its own revert ──
   {
     "key": "ctrl+shift+8",
     "command": "editor.foldAllMarkerRegions",

@@ -236,11 +236,11 @@
     "sideBarSectionHeader.background": "#22212c",
     "sideBarSectionHeader.foreground": "#92a2d4",
     "sideBarSectionHeader.border": "#92a2d4",
-    "statusBar.background": "#32634a",
-    "statusBar.foreground": "#8aff80",
-    "statusBar.noFolderBackground": "#32634a",
-    "statusBar.debuggingBackground": "#32634a",
-    "statusBar.debuggingForeground": "#8aff80",
+    "statusBar.background": "#22212c",
+    "statusBar.foreground": "#6272a4",
+    "statusBar.noFolderBackground": "#22212c",
+    "statusBar.debuggingBackground": "#22212c",
+    "statusBar.debuggingForeground": "#6272a4",
     "editor.selectionBackground": "#9580ff40",
     "editor.selectionHighlightBackground": "#9580ff25",
     "editor.foldBackground": "#282a3610",
@@ -467,9 +467,6 @@
   // OUTLINE
   // ═════════════════════════════════════════════════════════
   "outline.icons": true,
-  "outline.problems.enabled": false,
-  "outline.collapseItems": "alwaysCollapse",
-  "outline.showVariables": false,
   // ═════════════════════════════════════════════════════════
   // SEARCH
   // ═════════════════════════════════════════════════════════
@@ -613,4 +610,6 @@
     "random": false,
   },
   "security.promptForLocalFileProtocolHandling": false,
+  "outline.showProperties": false,
+  "outline.showVariables": false,
 }
