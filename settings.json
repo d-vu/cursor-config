@@ -3,25 +3,25 @@
   // MODE TOGGLE — flip comments to switch
   // ═════════════════════════════════════════════════════════
   // ── CODING MODE (quiet: no lint, no error lines) ──
-  "typescript.validate.enable": false,
-  "javascript.validate.enable": false,
-  "editor.renderValidationDecorations": "off",
-  "errorLens.enabled": false,
-  "eslint.enable": false,
-  "editor.showUnused": false,
-  "editor.showDeprecated": false,
+  // "typescript.validate.enable": false,
+  // "javascript.validate.enable": false,
+  // "editor.renderValidationDecorations": "off",
+  // "errorLens.enabled": false,
+  // "eslint.enable": false,
+  // "editor.showUnused": false,
+  // "editor.showDeprecated": false,
   // ── REVIEW MODE (full diagnostics) ──
-  // "typescript.validate.enable": true,
-  // "javascript.validate.enable": true,
-  // "editor.renderValidationDecorations": "on",
-  // "errorLens.enabled": true,
-  // "problems.decorations.enabled": true,
+  "typescript.validate.enable": true,
+  "javascript.validate.enable": true,
+  "editor.renderValidationDecorations": "on",
+  "errorLens.enabled": true,
+  "problems.decorations.enabled": true,
   // ═════════════════════════════════════════════════════════
   // THEME & ICONS
   // ═════════════════════════════════════════════════════════
   "workbench.colorTheme": "Dracula Theme Soft",
   "workbench.productIconTheme": "fluent-icons",
-  "workbench.iconTheme": "catppuccin-frappe",
+  "workbench.iconTheme": "simple-icons",
   // ═════════════════════════════════════════════════════════
   // SEMANTIC TOKEN COLORS (TypeScript — wins over TextMate)
   // ═════════════════════════════════════════════════════════
@@ -39,8 +39,6 @@
         "variable.declaration.local": { "foreground": "#bd93f9" },
         "variable.declaration.readonly": { "foreground": "#bd93f9" },
         "variable.declaration.readonly.local": { "foreground": "#bd93f9" },
-        // ── Object property access ──
-        "variable.other.object.property": { "foreground": "#f99393" },
         // ── Variable usages (base intentionally omitted) ──
         "variable.readonly": { "foreground": "#b3d4ff" },
         "variable.local": { "foreground": "#b3d4ff" },
@@ -97,14 +95,12 @@
           "settings": { "foreground": "#b3d4ff" },
         },
         // ── Object property access (matches semantic salmon) ──
-        {
-          "scope": ["variable.other.object.property"],
-          "settings": { "foreground": "#f99393" },
-        },
+
         // ── Properties (incl. object-literal keys, to kill scroll flicker) ──
         {
           "scope": [
             "variable.other.property",
+            "variable.other.object.property",
             "support.constant.property",
             "support.variable.property",
             "meta.object-literal.key",
@@ -112,9 +108,14 @@
           ],
           "settings": { "foreground": "#8fe0d0" },
         },
+        // ── Parameters (reserved white) ──
+        {
+          "scope": ["variable.parameter"],
+          "settings": { "foreground": "#e6e3e3" },
+        },
         // ── Built-in vars (this, super) ──
         {
-          "scope": ["support.variable", "variable.language.this.ts"],
+          "scope": ["variable.language.this.ts", "meta.object.member"],
           "settings": { "foreground": "#e668af" },
         },
         // ── Types / primitives ──
@@ -122,14 +123,28 @@
           "scope": ["support.type.primitive", "support.type.builtin"],
           "settings": { "foreground": "#d4b89c" },
         },
-        // ── Parameters + control flow / async ──
-        {
-          "scope": ["variable.parameter"],
-          "settings": { "foreground": "#e6e3e3" },
-        },
+        // ── Booleans truthy ──
         {
           "scope": [
-            "keyword.control.flow",
+            "constant.language.boolean.true.ts",
+            "constant.language.boolean.true",
+            "constant.language.json.comments",
+          ],
+          "settings": { "foreground": "#d0e498" },
+        },
+        // ── Booleans falsy + null + undefined ──
+        {
+          "scope": [
+            "constant.language.boolean.false.ts",
+            "constant.language.boolean.false",
+            "constant.language.null.ts",
+            "constant.language.undefined.ts",
+          ],
+          "settings": { "foreground": "#aec072" },
+        },
+        // ── Control flow / async ──
+        {
+          "scope": [
             "storage.modifier.async",
             "keyword.control.trycatch",
             "keyword.control.conditional",
@@ -137,11 +152,6 @@
             "keyword.control.flow",
           ],
           "settings": { "foreground": "#ffb86c" },
-        },
-
-        {
-          "scope": ["keyword.control.flow"],
-          "settings": { "foreground": "#ffb86c", "fontStyle": "italic" },
         },
         // ── Operators ──
         {
@@ -162,33 +172,30 @@
           "scope": ["constant.numeric.decimal", "constant.numeric"],
           "settings": { "foreground": "#dcdf53" },
         },
-        // ── JSX prop names (props passed to components) ──
+        // ── JSX prop names ──
         {
           "scope": [
             "entity.other.attribute-name.tsx",
             "entity.other.attribute-name.jsx",
           ],
-          // "settings": { "foreground": "#6fd89a" },
-        },
-        // ── JSX attribute names (fallback / non-tsx) ──
-        {
-          "scope": "entity.other.attribute-name",
-          // "settings": { "foreground": "#6fd89a" },
+          "settings": { "foreground": "#7fc9a8" },
         },
         // ── JSX child text ──
         {
           "scope": [
             "meta.jsx.children.tsx",
             "meta.jsx.children.js",
-            "meta.embedded.block",
+            // "meta.embedded.block",
           ],
-          "settings": { "foreground": "#b2b2d0" },
+          // "settings": { "foreground": "#b2b2d0" },
+          "settings": { "foreground": "#c5c5d8" },
         },
-        // ── React components / JSX tags ──
+        // ── React components (capitalized) → coral ──
         {
-          "scope": ["support.class.component"],
+          "scope": ["support.class.component", "support.class.component.tsx"],
           "settings": { "foreground": "#ff9580" },
         },
+
         // ── Comments ──
         {
           "scope": ["comment", "punctuation.definition.comment"],
@@ -305,7 +312,7 @@
   // "editor.fontFamily": "Monaspace Neon, monospace",
   // "editor.fontFamily": "Monaspace Radon, monospace",
   // "editor.fontLigatures": "'calt', 'ss03'",
-  // "editor.fontLigatures": true,
+  "editor.fontLigatures": true,
   // "editor.lineHeight": 1.6,
   // ═════════════════════════════════════════════════════════
   // EDITOR: APPEARANCE
@@ -605,4 +612,5 @@
     "interval": 0,
     "random": false,
   },
+  "security.promptForLocalFileProtocolHandling": false,
 }
