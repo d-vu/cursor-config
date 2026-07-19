@@ -3,19 +3,19 @@
   // MODE TOGGLE — flip comments to switch
   // ═════════════════════════════════════════════════════════
   // ── CODING MODE (quiet: no lint, no error lines) ──
-  // "typescript.validate.enable": false,
-  // "javascript.validate.enable": false,
-  // "editor.renderValidationDecorations": "off",
-  // "errorLens.enabled": false,
-  // "eslint.enable": false,
-  // "editor.showUnused": false,
-  // "editor.showDeprecated": false,
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "editor.renderValidationDecorations": "off",
+  "errorLens.enabled": false,
+  "eslint.enable": false,
+  "editor.showUnused": false,
+  "editor.showDeprecated": false,
   // ── REVIEW MODE (full diagnostics) ──
-  "typescript.validate.enable": true,
-  "javascript.validate.enable": true,
-  "editor.renderValidationDecorations": "on",
-  "errorLens.enabled": true,
-  "problems.decorations.enabled": true,
+  // "typescript.validate.enable": true,
+  // "javascript.validate.enable": true,
+  // "editor.renderValidationDecorations": "on",
+  // "errorLens.enabled": true,
+  // "problems.decorations.enabled": true,
   // ═════════════════════════════════════════════════════════
   // THEME & ICONS
   // ═════════════════════════════════════════════════════════
@@ -293,8 +293,8 @@
       "tab.hoverBackground": "#2f2f42",
       "tab.hoverForeground": "#f8f8f2",
       "tree.indentGuidesStroke": "#4d5066",
-      "tree.inactiveIndentGuidesStroke": "#33354a",
-    },
+      "tree.inactiveIndentGuidesStroke": "#33354a"
+    }
   },
   // ═════════════════════════════════════════════════════════
   // FONT & TYPOGRAPHY
@@ -312,8 +312,8 @@
   // "editor.fontFamily": "Monaspace Neon, monospace",
   // "editor.fontFamily": "Monaspace Radon, monospace",
   // "editor.fontLigatures": "'calt', 'ss03'",
-  "editor.fontLigatures": true,
-  // "editor.lineHeight": 1.6,
+  // "editor.fontLigatures": true,
+  "editor.lineHeight": 1.6,
   // ═════════════════════════════════════════════════════════
   // EDITOR: APPEARANCE
   // ═════════════════════════════════════════════════════════
@@ -396,8 +396,8 @@
   "workbench.editor.wrapTabs": true,
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.highlightModifiedTabs": true,
-  "workbench.editor.enablePreview": false,
-  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromQuickOpen": true,
   "workbench.editor.decorations.badges": true,
   "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.labelFormat": "medium",
@@ -612,4 +612,8 @@
   "security.promptForLocalFileProtocolHandling": false,
   "outline.showProperties": false,
   "outline.showVariables": false,
+  "editor.matchBrackets": "never",
+  "gitlens.currentLine.scrollable": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
 }

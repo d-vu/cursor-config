@@ -59,7 +59,6 @@
   // ════════════════════════════════════════════════════════════════════════════════
 
   // ── Create splits ──
-  { "key": "cmd+alt+\\", "command": "workbench.action.splitEditor" },
   { "key": "cmd+shift+d", "command": "workbench.action.splitEditorDown" },
 
   // ── Focus split by group (ctrl+1 through ctrl+4) ──
