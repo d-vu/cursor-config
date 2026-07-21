@@ -126,43 +126,57 @@
     "command": "editor.unfold",
     "when": "editorTextFocus && foldingEnabled",
   },
+  {
+    "key": "ctrl+1",
+    "command": "workbench.action.splitEditorDown",
+  },
+
+  {
+    "key": "ctrl+2",
+    "command": "workbench.action.splitEditorRight",
+  },
 
   // ── Whole-file folds; ctrl+0 is the universal revert ──
   {
-    "key": "ctrl+shift+\\",
+    "key": "ctrl+shift+enter",
     "command": "editor.foldAllExcept",
     "when": "editorTextFocus && foldingEnabled",
   },
-  {
-    "key": "ctrl+shift+enter",
-    "command": "editor.foldAll",
-    "when": "editorTextFocus && foldingEnabled",
-  },
-  {
-    "key": "ctrl+1",
-    "command": "editor.foldLevel1",
-    "when": "editorTextFocus && foldingEnabled",
-  },
-  {
-    "key": "ctrl+2",
-    "command": "editor.foldLevel2",
-    "when": "editorTextFocus && foldingEnabled",
-  },
-  {
-    "key": "ctrl+3",
-    "command": "editor.foldLevel3",
-    "when": "editorTextFocus && foldingEnabled",
-  },
-  {
-    "key": "ctrl+4",
-    "command": "editor.foldLevel4",
-    "when": "editorTextFocus && foldingEnabled",
-  },
+  // {
+  //   "key": "ctrl+shift+enter",
+  //   "command": "editor.foldAll",
+  //   "when": "editorTextFocus && foldingEnabled",
+  // },
+  // {
+  //   "key": "ctrl+1",
+  //   "command": "editor.foldLevel1",
+  //   "when": "editorTextFocus && foldingEnabled",
+  // },
+  // {
+  //   "key": "ctrl+2",
+  //   "command": "editor.foldLevel2",
+  //   "when": "editorTextFocus && foldingEnabled",
+  // },
+  // {
+  //   "key": "ctrl+3",
+  //   "command": "editor.foldLevel3",
+  //   "when": "editorTextFocus && foldingEnabled",
+  // },
+  // {
+  //   "key": "ctrl+4",
+  //   "command": "editor.foldLevel4",
+  //   "when": "editorTextFocus && foldingEnabled",
+  // },
 
   {
     "key": "ctrl+0",
     "command": "editor.unfoldAll",
     "when": "editorTextFocus && foldingEnabled",
+  },
+
+  {
+    "key": "cmd+b",
+    "command": "breadcrumbs.toggle",
   },
 
   {
@@ -209,7 +223,10 @@
   // UI TOGGLES & VISIBILITY
   // ════════════════════════════════════════════════════════════════════════════════
   { "key": "cmd+\\", "command": "workbench.action.toggleSidebarVisibility" },
-  { "key": "cmd+b", "command": "workbench.action.toggleActivityBarVisibility" },
+  {
+    "key": "cmd+shift+b",
+    "command": "workbench.action.toggleActivityBarVisibility",
+  },
   { "key": "cmd+m", "command": "editor.action.toggleMinimap" },
   { "key": "cmd+shift+t", "command": "workbench.action.selectTheme" },
   { "key": "cmd+shift+i", "command": "workbench.action.selectIconTheme" },
@@ -244,5 +261,19 @@
         },
       ],
     },
+  },
+  {
+    "key": "cmd+shift+up",
+    "command": "editor.emmet.action.balanceOut",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "cmd+shift+down",
+    "command": "editor.emmet.action.balanceIn",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "ctrl+alt+s",
+    "command": "inlineFold.toggle",
   },
 ]
