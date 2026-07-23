@@ -1,20 +1,15 @@
 [
-  // ════════════════════════════════════════════════════════════════════════════════
-  // NAVIGATION — Editor & History
-  // ════════════════════════════════════════════════════════════════════════════════
+  // ════════════════════════════════════════════════════════════════
+  // NAVIGATION — history & quick open
+  // ════════════════════════════════════════════════════════════════
   { "key": "ctrl+-", "command": "workbench.action.navigateBack" },
   { "key": "ctrl+shift+-", "command": "workbench.action.navigateForward" },
-
-  // ════════════════════════════════════════════════════════════════════════════════
-  // QUICK OPEN & SEARCH
-  // ════════════════════════════════════════════════════════════════════════════════
   { "key": "cmd+p", "command": "workbench.action.quickOpen" },
+  { "key": "cmd+o", "command": "workbench.action.openRecent" },
 
-  // ════════════════════════════════════════════════════════════════════════════════
-  // TABS — Cycle, Jump, & Management
-  // ════════════════════════════════════════════════════════════════════════════════
-
-  // ── Cycle between tabs ──
+  // ════════════════════════════════════════════════════════════════
+  // TABS — cycle
+  // ════════════════════════════════════════════════════════════════
   { "key": "ctrl+tab", "command": "workbench.action.nextEditor" },
   { "key": "ctrl+shift+tab", "command": "workbench.action.previousEditor" },
   {
@@ -28,7 +23,7 @@
     "when": "terminalFocus",
   },
 
-  // ── Jump to tab by index (cmd+1 through cmd+9) ──
+  // ── Jump to tab by index ──
   { "key": "cmd+1", "command": "workbench.action.openEditorAtIndex1" },
   { "key": "cmd+2", "command": "workbench.action.openEditorAtIndex2" },
   { "key": "cmd+3", "command": "workbench.action.openEditorAtIndex3" },
@@ -39,7 +34,7 @@
   { "key": "cmd+8", "command": "workbench.action.openEditorAtIndex8" },
   { "key": "cmd+9", "command": "workbench.action.openEditorAtIndex9" },
 
-  // ── Tab management: pin, close groups ──
+  // ── Tab management: pin, reopen, close groups ──
   {
     "key": "cmd+alt+p",
     "command": "workbench.action.pinEditor",
@@ -51,17 +46,14 @@
     "when": "activeEditorIsPinned",
   },
   { "key": "cmd+alt+e", "command": "workbench.action.closeOtherEditors" },
-  { "key": "cmd+alt+l", "command": "workbench.action.closeEditorsToTheLeft" },
   { "key": "cmd+alt+r", "command": "workbench.action.closeEditorsToTheRight" },
+  { "key": "shift+cmd+t", "command": "workbench.action.reopenClosedEditor" },
 
-  // ════════════════════════════════════════════════════════════════════════════════
-  // SPLITS — Create & Navigate
-  // ════════════════════════════════════════════════════════════════════════════════
-
-  // ── Create splits ──
-  { "key": "cmd+shift+d", "command": "workbench.action.splitEditorDown" },
-
-  // ── Focus split by group (ctrl+1 through ctrl+4) ──
+  // ════════════════════════════════════════════════════════════════
+  // SPLITS — create, focus, move editors
+  // ════════════════════════════════════════════════════════════════
+  { "key": "ctrl+1", "command": "workbench.action.splitEditorDown" },
+  { "key": "ctrl+2", "command": "workbench.action.splitEditorRight" },
   {
     "key": "ctrl+shift+1",
     "command": "workbench.action.focusFirstEditorGroup",
@@ -78,8 +70,6 @@
     "key": "ctrl+shift+4",
     "command": "workbench.action.focusFourthEditorGroup",
   },
-
-  // ── Move editors within/across splits ──
   {
     "key": "cmd+alt+left",
     "command": "workbench.action.moveEditorLeftInGroup",
@@ -94,16 +84,10 @@
     "command": "workbench.action.moveEditorToRightGroup",
   },
 
-  // ════════════════════════════════════════════════════════════════════════════════
-  // TERMINAL
-  // ════════════════════════════════════════════════════════════════════════════════
-  { "key": "ctrl+`", "command": "workbench.action.terminal.toggleTerminal" },
-
-  // ════════════════════════════════════════════════════════════════════════════════
-  // FOLDING — Cursor-safe, integrates with vim keybinds (Ctrl+[ and Ctrl+] override vim)
-  // ════════════════════════════════════════════════════════════════════════════════
-
-  // ── Granular: toggle at cursor position ──
+  // ════════════════════════════════════════════════════════════════
+  // FOLDING — cursor-safe, overrides vim's ctrl+[ / ctrl+]
+  // ════════════════════════════════════════════════════════════════
+  // Toggle fold at cursor
   {
     "key": "ctrl+shift+[",
     "command": "editor.toggleFold",
@@ -114,8 +98,7 @@
     "command": "editor.toggleFold",
     "when": "editorTextFocus && foldingEnabled",
   },
-
-  // ── Single fold/unfold (overrides vim) ──
+  // Single fold / unfold at cursor
   {
     "key": "ctrl+[",
     "command": "editor.fold",
@@ -126,64 +109,18 @@
     "command": "editor.unfold",
     "when": "editorTextFocus && foldingEnabled",
   },
-  {
-    "key": "ctrl+1",
-    "command": "workbench.action.splitEditorDown",
-  },
-
-  {
-    "key": "ctrl+2",
-    "command": "workbench.action.splitEditorRight",
-  },
-
-  // ── Whole-file folds; ctrl+0 is the universal revert ──
+  // Whole-file
   {
     "key": "ctrl+shift+enter",
     "command": "editor.foldAllExcept",
     "when": "editorTextFocus && foldingEnabled",
   },
-  // {
-  //   "key": "ctrl+shift+enter",
-  //   "command": "editor.foldAll",
-  //   "when": "editorTextFocus && foldingEnabled",
-  // },
-  // {
-  //   "key": "ctrl+1",
-  //   "command": "editor.foldLevel1",
-  //   "when": "editorTextFocus && foldingEnabled",
-  // },
-  // {
-  //   "key": "ctrl+2",
-  //   "command": "editor.foldLevel2",
-  //   "when": "editorTextFocus && foldingEnabled",
-  // },
-  // {
-  //   "key": "ctrl+3",
-  //   "command": "editor.foldLevel3",
-  //   "when": "editorTextFocus && foldingEnabled",
-  // },
-  // {
-  //   "key": "ctrl+4",
-  //   "command": "editor.foldLevel4",
-  //   "when": "editorTextFocus && foldingEnabled",
-  // },
-
   {
     "key": "ctrl+0",
     "command": "editor.unfoldAll",
     "when": "editorTextFocus && foldingEnabled",
   },
-
-  {
-    "key": "cmd+b",
-    "command": "breadcrumbs.toggle",
-  },
-
-  {
-    "key": "ctrl+\\",
-    "command": "editor.unfoldAll",
-    "when": "editorTextFocus && foldingEnabled",
-  }, // ── Marker regions: fold + its own revert ──
+  // Marker regions
   {
     "key": "ctrl+shift+8",
     "command": "editor.foldAllMarkerRegions",
@@ -195,9 +132,20 @@
     "when": "editorTextFocus && foldingEnabled",
   },
 
-  // ════════════════════════════════════════════════════════════════════════════════
-  // EDITING
-  // ════════════════════════════════════════════════════════════════════════════════
+  // ════════════════════════════════════════════════════════════════
+  // EDITING — emmet balance, inline-fold, redo
+  // ════════════════════════════════════════════════════════════════
+  {
+    "key": "cmd+shift+up",
+    "command": "editor.emmet.action.balanceOut",
+    "when": "editorTextFocus",
+  },
+  {
+    "key": "cmd+shift+down",
+    "command": "editor.emmet.action.balanceIn",
+    "when": "editorTextFocus",
+  },
+  { "key": "ctrl+alt+s", "command": "inlineFold.toggle" },
   {
     "key": "cmd+y",
     "command": "redo",
@@ -209,9 +157,14 @@
     "when": "editorTextFocus && !editorReadonly",
   },
 
-  // ════════════════════════════════════════════════════════════════════════════════
+  // ════════════════════════════════════════════════════════════════
+  // TERMINAL
+  // ════════════════════════════════════════════════════════════════
+  { "key": "ctrl+`", "command": "workbench.action.terminal.toggleTerminal" },
+
+  // ════════════════════════════════════════════════════════════════
   // GIT
-  // ════════════════════════════════════════════════════════════════════════════════
+  // ════════════════════════════════════════════════════════════════
   { "key": "cmd+shift+g", "command": "workbench.view.scm" },
   {
     "key": "cmd+shift+h",
@@ -219,30 +172,37 @@
     "when": "editorTextFocus",
   },
 
-  // ════════════════════════════════════════════════════════════════════════════════
+  // ════════════════════════════════════════════════════════════════
   // UI TOGGLES & VISIBILITY
-  // ════════════════════════════════════════════════════════════════════════════════
+  // ════════════════════════════════════════════════════════════════
   { "key": "cmd+\\", "command": "workbench.action.toggleSidebarVisibility" },
+  {
+    "key": "ctrl+\\",
+    "command": "editor.unfoldAll",
+    "when": "editorTextFocus && foldingEnabled",
+  },
+  { "key": "cmd+b", "command": "breadcrumbs.toggle" },
   {
     "key": "cmd+shift+b",
     "command": "workbench.action.toggleActivityBarVisibility",
   },
   { "key": "cmd+m", "command": "editor.action.toggleMinimap" },
-  { "key": "cmd+shift+t", "command": "workbench.action.selectTheme" },
   { "key": "cmd+shift+i", "command": "workbench.action.selectIconTheme" },
   {
     "key": "cmd+shift+r",
     "command": "workbench.files.action.showActiveFileInExplorer",
   },
 
-  // ════════════════════════════════════════════════════════════════════════════════
-  // ZOOM & DIAGNOSTICS
-  // ════════════════════════════════════════════════════════════════════════════════
+  // ════════════════════════════════════════════════════════════════
+  // ZOOM & VIEW SIZE
+  // ════════════════════════════════════════════════════════════════
   { "key": "cmd+;", "command": "workbench.action.decreaseViewSize" },
   { "key": "cmd+'", "command": "workbench.action.increaseViewSize" },
   { "key": "cmd+0", "command": "workbench.action.zoomReset" },
 
-  // ── Toggle TypeScript/JavaScript diagnostics ──
+  // ════════════════════════════════════════════════════════════════
+  // DIAGNOSTICS — coding/review mode toggle
+  // ════════════════════════════════════════════════════════════════
   {
     "key": "cmd+shift+alt+e",
     "command": "settings.cycle",
@@ -261,19 +221,5 @@
         },
       ],
     },
-  },
-  {
-    "key": "cmd+shift+up",
-    "command": "editor.emmet.action.balanceOut",
-    "when": "editorTextFocus",
-  },
-  {
-    "key": "cmd+shift+down",
-    "command": "editor.emmet.action.balanceIn",
-    "when": "editorTextFocus",
-  },
-  {
-    "key": "ctrl+alt+s",
-    "command": "inlineFold.toggle",
   },
 ]
