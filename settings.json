@@ -356,11 +356,11 @@
       "tree.indentGuidesStroke": "#4d5066",
       "tree.inactiveIndentGuidesStroke": "#33354a",
     },
-    "statusBar.noFolderBackground": "#32634a",
-    "statusBar.debuggingBackground": "#32634a",
-    "statusBar.debuggingForeground": "#8aff80",
-    "statusBar.background": "#32634a",
-    "statusBar.foreground": "#8aff80",
+    "statusBar.noFolderBackground": "#22212c",
+    "statusBar.debuggingBackground": "#22212c",
+    "statusBar.debuggingForeground": "#a0aac8",
+    "statusBar.background": "#22212c",
+    "statusBar.foreground": "#a0aac8",
     "activityBar.activeBackground": "#65c89b",
     "activityBar.background": "#65c89b",
     "activityBar.foreground": "#15202b",
@@ -384,15 +384,15 @@
     "editorGroup.border": "#44475a",
     "panel.border": "#44475a",
     "sideBar.border": "#44475a",
-    "window.activeBorder": "#c0b3ff",
-    "window.inactiveBorder": "#c0b3ff",
+    "window.activeBorder": "#bdf3fe",
+    "window.inactiveBorder": "#bdf3fe",
   },
 
   // ═════════════════════════════════════════════════════════
   // FONT & TYPOGRAPHY
   // ═════════════════════════════════════════════════════════
   "editor.fontFamily": "JetBrains Mono, monospace",
-  "editor.fontSize": 13.5,
+  "editor.fontSize": 15,
   "editor.lineHeight": 1.55,
   // Alternates:
   // "editor.fontFamily": "DejaVu Sans Mono, monospace",
@@ -481,11 +481,6 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
-
-  // ═════════════════════════════════════════════════════════
-  // FILES & SEARCH
-  // ═════════════════════════════════════════════════════════
-  "files.trimTrailingWhitespace": true,
   "search.showLineNumbers": true,
   "search.smartCase": true,
   "search.seedWithNearestWord": true,
@@ -720,16 +715,16 @@
     "rgba(149,128,255,0.12)",
     "rgba(149,128,255,0.22)",
     "rgba(149,128,255,0.32)",
-    "rgba(149,128,255,0.42)",
-    "rgba(149,128,255,0.52)",
-    "rgba(149,128,255,0.58)",
-    "rgba(149,128,255,0.64)",
-    "rgba(149,128,255,0.68)",
-    "rgba(149,128,255,0.72)",
-    "rgba(149,128,255,0.76)",
-    "rgba(149,128,255,0.80)",
-    "rgba(149,128,255,0.84)",
-    "rgba(149,128,255,0.88)",
+    "rgba(149,128,255,0.35)",
+    "rgba(149,128,255,0.38)",
+    "rgba(149,128,255,0.41)",
+    "rgba(149,128,255,0.44)",
+    "rgba(149,128,255,0.47)",
+    "rgba(149,128,255,0.50)",
+    "rgba(149,128,255,0.53)",
+    "rgba(149,128,255,0.56)",
+    "rgba(149,128,255,0.59)",
+    "rgba(149,128,255,0.62)",
   ],
   "indentRainbow.errorColor": "rgba(255,85,85,0.20)",
   "indentRainbow.tabmixColor": "rgba(255,85,85,0.20)",
@@ -742,9 +737,9 @@
   // ═════════════════════════════════════════════════════════
   // EXTENSION: inline-fold
   // ═════════════════════════════════════════════════════════
-  "inlineFold.regex": "(['\"`])(.{10,}?)(\\1)",
-  "inlineFold.regexFlags": "g",
-  "inlineFold.regexGroup": 2,
+  "inlineFold.regex": "(['\"`])(.{45,}?)(\\1)",
+  // "inlineFold.regex": "(['\"`])([\\s\\S]{45,}?)(\\1)",
+  "inlineFold.regexGroup": "2",
   "inlineFold.supportedLanguages": [
     "typescript",
     "typescriptreact",
@@ -779,7 +774,7 @@
     "style": {
       "background-position": "0px 0px",
       "background-size": "cover",
-      "opacity": 0.02,
+      "opacity": 0.01,
     },
     "images": [
       "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAuNSAwVjIwTTAgMC41SDIwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iOTAwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+Cg==",
@@ -787,12 +782,11 @@
     "interval": 0,
     "random": false,
   },
-  "editor.renderWhitespace": "all",
   "inlineFold.togglePerFile": false,
   "tailwind-fold.unfoldedTextOpacity": 0.85,
-  "tailwind-fold.autoFold": false,
+  "tailwind-fold.autoFold": true,
   "tailwind-fold.showTailwindImage": false,
-  "inlineFold.maskChar": "◦◦◦ ",
+  "inlineFold.maskChar": "...",
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
   "hideComments.regex": [],
   "outline.collapseItems": "alwaysCollapse",
@@ -815,4 +809,7 @@
   "bookmarks.wrapNavigation": true,
   "bookmarks.showBookmarkDecorationsInDebugMode": false,
   "bookmarks.confirmClear": "always",
+  "files.trimTrailingWhitespace": true,
+  "editor.renderWhitespace": "none",
+  "inlineFold.maskColor": "#DDD683",
 }
