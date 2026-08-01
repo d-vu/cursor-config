@@ -3,19 +3,19 @@
   // MODE TOGGLE — flip comments to switch
   // ═════════════════════════════════════════════════════════
   // ── CODING MODE (quiet: no lint, no error lines) ──
-  "typescript.validate.enable": false,
-  "javascript.validate.enable": false,
-  "editor.renderValidationDecorations": "off",
-  "errorLens.enabled": false,
-  "eslint.enable": false,
-  "editor.showUnused": false,
-  "editor.showDeprecated": false,
+  // "typescript.validate.enable": false,
+  // "javascript.validate.enable": false,
+  // "editor.renderValidationDecorations": "off",
+  // "errorLens.enabled": false,
+  // "eslint.enable": false,
+  // "editor.showUnused": false,
+  // "editor.showDeprecated": false,
   // ── REVIEW MODE (full diagnostics) ──
-  // "typescript.validate.enable": true,
-  // "javascript.validate.enable": true,
-  // "editor.renderValidationDecorations": "on",
-  // "errorLens.enabled": true,
-  // "problems.decorations.enabled": true,
+  "typescript.validate.enable": true,
+  "javascript.validate.enable": true,
+  "editor.renderValidationDecorations": "on",
+  "errorLens.enabled": true,
+  "problems.decorations.enabled": true,
 
   // ═════════════════════════════════════════════════════════
   // THEME & ICONS
@@ -39,19 +39,19 @@
       "rules": {
         // Functions / methods / classes
         // b3d4ff
-        "method": { "foreground": "#62e884" },
-        "function.defaultLibrary": { "foreground": "#62e884" },
-        "method.defaultLibrary": { "foreground": "#62e884" },
-        "class.defaultLibrary": { "foreground": "#62e884", "italic": false },
+        "method": { "foreground": "#62e883e7" },
+        "function.defaultLibrary": { "foreground": "#62e883e7" },
+        "method.defaultLibrary": { "foreground": "#62e883e7" },
+        "class.defaultLibrary": { "foreground": "#62e883e7", "italic": false },
         // Variable declarations
         "variable.declaration": { "foreground": "#bd93f9" },
         "variable.declaration.local": { "foreground": "#bd93f9" },
         "variable.declaration.readonly": { "foreground": "#bd93f9" },
         "variable.declaration.readonly.local": { "foreground": "#bd93f9" },
         // Variable usages (base intentionally omitted)
-        "variable.readonly": { "foreground": "#8fbcf7" },
-        "variable.local": { "foreground": "#8fbcf7" },
-        "variable.readonly.local": { "foreground": "#8fbcf7" },
+        "variable.readonly": { "foreground": "#7eb0ee" },
+        "variable.local": { "foreground": "#7eb0ee" },
+        "variable.readonly.local": { "foreground": "#7eb0ee" },
         // Declared properties
         "property.declaration": { "foreground": "#d4d4d4" },
         "property.declaration.readonly": { "foreground": "#d4d4d4" },
@@ -86,11 +86,11 @@
             "entity.name.function",
             "support.class.builtin",
           ],
-          "settings": { "foreground": "#62e884" },
+          "settings": { "foreground": "#62e883e7" },
         },
         {
           "scope": ["entity.name.type.class"],
-          "settings": { "foreground": "#62e884" },
+          "settings": { "foreground": "#62e883e7" },
         },
         // Variable usages
         {
@@ -99,7 +99,7 @@
             "variable.other.constant.object",
             "variable.other.object",
           ],
-          "settings": { "foreground": "#8fbcf7" },
+          "settings": { "foreground": "#7eb0ee" },
         },
         // Properties (incl. object-literal keys, to kill scroll flicker)
         {
@@ -238,6 +238,7 @@
             "support.class.component.tsx",
             "entity.other.attribute-name.tsx",
             "variable.language.this",
+            "support.class.builtin",
             "keyword.operator.new.tsx",
           ],
           "settings": { "fontStyle": "" },
@@ -263,15 +264,15 @@
       "dropdown.background": "#22212c",
       "dropdown.border": "#44475a",
       "editor.findMatchBackground": "#e2c97430",
-      "editor.findMatchHighlightBackground": "#8fbcf726",
-      "editor.findMatchHighlightBorder": "#8fbcf780",
+      "editor.findMatchHighlightBackground": "#7eb0ee26",
+      "editor.findMatchHighlightBorder": "#7eb0ee80",
       "editor.foldBackground": "#282a3610",
       "editor.lineHighlightBackground": "#9580ff0e",
       "editor.lineHighlightBorder": "#9580ff1b",
       "editor.selectionBackground": "#9580ff40",
       "editor.selectionHighlightBackground": "#00000050",
       "editor.wordHighlightBackground": "#00000040",
-      "editor.wordHighlightBorder": "#8fbcf780",
+      "editor.wordHighlightBorder": "#7eb0ee80",
       "editor.wordHighlightStrongBackground": "#00000070",
       "editor.wordHighlightTextBackground": "#ffffff20",
       "editor.wordHighlightStrongBorder": "#f26f9180",
@@ -418,8 +419,8 @@
   "editor.fontSize": 14,
   "editor.lineHeight": 1.65,
   // Alternates:
-  "editor.fontFamily": "JetBrains Mono, monospace",
-  // "editor.fontFamily": "DejaVu Sans Mono, monospace",
+  // "editor.fontFamily": "JetBrains Mono, monospace",
+  "editor.fontFamily": "DejaVu Sans Mono, monospace",
   // "editor.fontFamily": "Inter, monospace",
   // "editor.fontFamily": "Google Sans Code",
   // "editor.fontFamily": "Geist Mono, monospace",
@@ -682,7 +683,7 @@
       "before": ["<leader>", "<left>"],
       "commands": ["bookmarks.jumpToPrevious"],
     },
-    { "before": ["<leader>", "l"], "commands": ["bookmarks.listFromAllFiles"] },
+    { "before": ["<leader>", "o"], "commands": ["bookmarks.listFromAllFiles"] },
     { "before": ["<leader>", "c"], "commands": ["bookmarks.clear"] },
     {
       "before": ["<leader>", "C"],
@@ -725,33 +726,6 @@
     "daniels-macbook-pro.tail1c869e.ts.net": "macOS",
   },
 
-  // ═════════════════════════════════════════════════════════
-  // EXTENSION: indent-rainbow  —  colors are GLOBAL
-  // ═════════════════════════════════════════════════════════
-  "indentRainbow.indicatorStyle": "light",
-  "indentRainbow.colors": [
-    // "rgba(149,128,255,0.060)",
-    // "rgba(139,233,253,0.060)",
-    // "rgba(98,232,132,0.060)",
-    // "rgba(255,184,108,0.060)",
-    // "rgba(255,149,128,0.060)",
-    // "rgba(255,121,198,0.060)",
-    // "rgba(149,128,255,0.12)",
-    // "rgba(149,128,255,0.22)",
-    // "rgba(149,128,255,0.32)",
-    // "rgba(149,128,255,0.35)",
-    // "rgba(149,128,255,0.38)",
-    // "rgba(149,128,255,0.41)",
-    // "rgba(149,128,255,0.44)",
-    // "rgba(149,128,255,0.47)",
-    // "rgba(149,128,255,0.50)",
-    // "rgba(149,128,255,0.53)",
-    // "rgba(149,128,255,0.56)",
-    // "rgba(149,128,255,0.59)",
-    // "rgba(149,128,255,0.62)",
-  ],
-  "indentRainbow.errorColor": "rgba(0, 0, 0, 0)",
-  "indentRainbow.tabmixColor": "rgba(0, 0, 0, 0)",
   "tailwind-fold.unfoldIfLineSelected": true,
   "tailwind-fold.foldedText": "◦◦◦ ",
   "tailwind-fold.foldedTextColor": "#7FC9A8",
@@ -840,4 +814,7 @@
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.guides.highlightActiveBracketPair": false,
   "workbench.layoutControl.enabled": false,
+  "breadcrumbs.enabled": false,
+  "editor.tabSize": 2,
+  "cSpell.userWords": ["repointing", "unstub"],
 }
