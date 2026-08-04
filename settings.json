@@ -535,6 +535,8 @@
   "workbench.editor.decorations.colors": true,
   "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.labelFormat": "medium",
+  "workbench.editor.enablePreview": true,
+  "workbench.editor.enablePreviewFromCodeNavigation": true
 
   // ═════════════════════════════════════════════════════════
   // EXPLORER & FILE TREE
@@ -724,6 +726,7 @@
     "daniel-macbook-pro": "macOS",
     "daniels-macbook-pro": "macOS",
     "daniels-macbook-pro.tail1c869e.ts.net": "macOS",
+    "dvu_laptop_table": "macOS",
   },
 
   "tailwind-fold.unfoldIfLineSelected": true,
@@ -810,7 +813,6 @@
   "diffEditor.ignoreTrimWhitespace": false,
   "symbols.hidesExplorerArrows": true,
   "workbench.tree.renderIndentGuides": "always",
-  "window.zoomLevel": 1,
   "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
   "editor.guides.highlightActiveBracketPair": false,
   "workbench.layoutControl.enabled": false,
