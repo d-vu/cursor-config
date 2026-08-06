@@ -30,7 +30,7 @@
   "editor.lineHeight": 1.65,
   // Alternates:
   // "editor.fontFamily": "JetBrains Mono, monospace",
-  "editor.fontFamily": "DejaVu Sans Mono, monospace",
+  // "editor.fontFamily": "DejaVu Sans Mono, monospace",
   // "editor.fontFamily": "Inter, monospace",
   // "editor.fontFamily": "Google Sans Code",
   // "editor.fontFamily": "Geist Mono, monospace",
@@ -226,16 +226,12 @@
           "settings": { "foreground": "#8b9e89" },
         },
         {
-          "scope": ["comment"],
-          "settings": { "foreground": "#8a8a92", "fontStyle": "italic" },
-        },
-        {
-          "scope": ["comment.block.documentation"],
-          "settings": { "foreground": "#a3a3ab", "fontStyle": "italic" },
-        },
-        {
-          "scope": ["punctuation.definition.comment"],
-          "settings": { "foreground": "#8a8a92", "fontStyle": "italic" },
+          "scope": [
+            "comment",
+            "comment.block.documentation",
+            "punctuation.definition.comment",
+          ],
+          "settings": { "foreground": "#8a8a92", "fontStyle": "" },
         },
 
         {
@@ -474,11 +470,11 @@
     },
     "window.activeBorder": "#c0b3ff",
     "window.inactiveBorder": "#c0b3ff",
-    "statusBar.background": "#32634a",
-    "statusBar.noFolderBackground": "#32634a",
-    "statusBar.debuggingBackground": "#32634a",
-    "statusBar.foreground": "#8aff80",
-    "statusBar.debuggingForeground": "#8aff80",
+    "statusBar.background": "#2d2415",
+    "statusBar.noFolderBackground": "#2d2415",
+    "statusBar.debuggingBackground": "#2d2415",
+    "statusBar.foreground": "#ffca80",
+    "statusBar.debuggingForeground": "#ffca80",
   },
 
   // ═════════════════════════════════════════════════════════
@@ -587,7 +583,6 @@
   "window.titleBarStyle": "custom",
   "window.title": "${activeFolderMedium} - (${activeEditorShort})",
   "window.zoomPerWindow": false,
-  "window.zoomLevel": 1,
   "window.autoDetectColorScheme": false,
 
   // ═════════════════════════════════════════════════════════
