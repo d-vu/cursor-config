@@ -299,6 +299,7 @@
       "editor.wordHighlightStrongBorder": "#f26f9180",
       "editor.wordHighlightTextBorder": "#8fe0d080",
       "editorBracketHighlight.foreground1": "#8be9fd",
+      "editorBracketHighlight.foreground2": "#bd93f9",
       "editorBracketHighlight.foreground3": "#7eb6f6",
       "editorBracketHighlight.foreground4": "#7ee0a4",
       "editorBracketHighlight.unexpectedBracket.foreground": "#ff5555",
@@ -492,6 +493,8 @@
   "editor.formatOnSave": true,
   "[typescript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[typescriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascript]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
+  "[javascriptreact]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "[jsonc]": { "editor.defaultFormatter": "esbenp.prettier-vscode" },
   "prettier.bracketSameLine": true,
 
@@ -568,7 +571,7 @@
   // ═════════════════════════════════════════════════════════
   // BREADCRUMBS & OUTLINE
   // ═════════════════════════════════════════════════════════
-  "breadcrumbs.enabled": false,
+  "breadcrumbs.enabled": true,
   "breadcrumbs.symbolPath": "on",
   "breadcrumbs.showFunctions": true,
   "breadcrumbs.showVariables": true,
@@ -618,7 +621,6 @@
   "gitlens.plusFeatures.enabled": false,
   "gitlens.views.branches.files.layout": "list",
   "gitlens.views.branches.branches.layout": "list",
-  "gitlens.currentLine.scrollable": false,
   "gitlens.currentLine.enabled": false,
   "diffEditor.renderSideBySide": true,
   "diffEditor.ignoreTrimWhitespace": false,
@@ -654,8 +656,6 @@
   "vim.statusBarColors.visualline": ["#2d2415", "#ffca80"],
   "vim.statusBarColors.visualblock": ["#2d1e14", "#ff9580"],
   "vim.statusBarColors.replace": ["#2d1522", "#ff92df"],
-  "vim.easymotionMarkerForegroundColorOneChar": "#fff",
-  "vim.easymotionMarkerFontWeight": "bold",
   "vim.statusBarColors.searchinprogressmode": ["#15202d", "#92a2d4"],
   "vim.highlightedyank": true,
   "vim.highlightedyankColor": "rgba(149,128,255,0.40)",
@@ -715,7 +715,7 @@
   "vim.mouseSelectionGoesIntoVisualMode": true,
   "vim.foldfix": true,
   "vim.hlsearch": true,
-  "vim.easymotion": true,
+  "vim.easymotion": false,
   "vim.sneak": true,
   "vim.useSystemClipboard": true,
 
@@ -794,9 +794,7 @@
   "vscode-pets.petType": "dog",
   "vscode-pets.petSize": "medium",
   "vscode-pets.petColor": "warrior",
-  "totalTypeScript.hiddenTips": ["typing-function-parameters", "basic-types"],
   "totalTypeScript.hideAllTips": true,
-  "totalTypeScript.hideBasicTips": false,
   "dateTime.showAMPM": true,
   "dateTime.showSeconds": true,
   "dateTime.showDayOfMonth": true,
