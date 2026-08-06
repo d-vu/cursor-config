@@ -47,9 +47,13 @@
   // COLORS — ALL SCOPED TO [Dracula Theme Soft]
   // Everything below is keyed under the theme name, so switching
   // themes (or importing to another account) leaves other themes
-  // untouched. NOTE: extension colors (Vim, indent-rainbow,
-  // tailwind-fold) live in their own sections lower down and are
-  // GLOBAL — VS Code can't theme-scope extension settings.
+  // untouched. Exception: window.activeBorder / inactiveBorder stay
+  // unscoped since Peacock manages them live at the top level.
+  // NOTE: extension-contributed colors (Vim, tailwind-fold, inline-fold)
+  // live in their own sections lower down and CAN'T be theme-scoped —
+  // only workbench.colorCustomizations, editor.tokenColorCustomizations,
+  // and editor.semanticTokenColorCustomizations support the
+  // "[Theme Name]" syntax; other extensions' settings don't.
   // ═════════════════════════════════════════════════════════
 
   // ── Semantic token colors (TypeScript — wins over TextMate) ──
@@ -402,23 +406,28 @@
       "list.hoverForeground": "#f8f8f2",
       "editor.findMatchBorder": "#f0d75f",
       "editorOverviewRuler.findMatchForeground": "#e2c974a0",
+      "statusBar.background": "#2d2415",
+      "statusBar.foreground": "#ffca80",
+      "activityBarTop.activeBackground": "#65c89b",
+      "activityBarTop.background": "#65c89b",
+      "activityBarTop.foreground": "#15202b",
+      "activityBarTop.inactiveForeground": "#15202b99",
+      "commandCenter.border": "#15202b99",
+      "commandCenter.foreground": "#595959",
+      "sash.hoverBorder": "#65c89b",
+      "statusBarItem.hoverBackground": "#359268",
+      "editorGroup.border": "#44475a",
+      "panel.border": "#44475a",
+      "sideBar.background": "#15161d",
+      "sideBar.border": "#3a3d4f",
     },
-    "statusBar.background": "#2d2415",
-    "statusBar.foreground": "#ffca80",
-    "activityBarTop.activeBackground": "#65c89b",
-    "activityBarTop.background": "#65c89b",
-    "activityBarTop.foreground": "#15202b",
-    "activityBarTop.inactiveForeground": "#15202b99",
-    "commandCenter.border": "#15202b99",
-    "commandCenter.foreground": "#595959",
-    "sash.hoverBorder": "#65c89b",
-    "statusBarItem.hoverBackground": "#359268",
-    "editorGroup.border": "#44475a",
-    "panel.border": "#44475a",
+    // Peacock writes window.activeBorder / window.inactiveBorder at the
+    // top level when it manages window borders live, so these two stay
+    // unscoped on purpose — nesting them would just get shadowed by
+    // Peacock's own writes. Every other custom color now lives inside
+    // "[Dracula Theme Soft]" above and won't leak into other themes.
     "window.activeBorder": "#c0b3ff",
     "window.inactiveBorder": "#c0b3ff",
-    "sideBar.background": "#15161d",
-    "sideBar.border": "#3a3d4f",
   },
 
   // ═════════════════════════════════════════════════════════
