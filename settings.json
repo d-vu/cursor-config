@@ -24,6 +24,26 @@
   "workbench.productIconTheme": "fluent-icons",
 
   // ═════════════════════════════════════════════════════════
+  // FONT
+  // ═════════════════════════════════════════════════════════
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.65,
+  // Alternates:
+  // "editor.fontFamily": "JetBrains Mono, monospace",
+  "editor.fontFamily": "DejaVu Sans Mono, monospace",
+  // "editor.fontFamily": "Inter, monospace",
+  // "editor.fontFamily": "Google Sans Code",
+  // "editor.fontFamily": "Geist Mono, monospace",
+  // "editor.fontFamily": "Maple Mono, monospace",
+  // "editor.fontFamily": "Ubuntu Mono, monospace",
+  // "editor.fontFamily": "Cascadia Code, monospace",
+  // "editor.fontFamily": "Monaspace Neon, monospace",
+  // "editor.fontFamily": "Monaspace Radon, monospace",
+  // "editor.fontLigatures": "'calt', 'ss03'",
+  "editor.fontLigatures": true,
+  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
+
+  // ═════════════════════════════════════════════════════════
   // COLORS — ALL SCOPED TO [Dracula Theme Soft]
   // Everything below is keyed under the theme name, so switching
   // themes (or importing to another account) leaves other themes
@@ -399,21 +419,6 @@
     "sideBar.background": "#15161d",
     "sideBar.border": "#3a3d4f",
   },
-  "editor.fontSize": 14,
-  "editor.lineHeight": 1.65,
-  // Alternates:
-  // "editor.fontFamily": "JetBrains Mono, monospace",
-  "editor.fontFamily": "DejaVu Sans Mono, monospace",
-  // "editor.fontFamily": "Inter, monospace",
-  // "editor.fontFamily": "Google Sans Code",
-  // "editor.fontFamily": "Geist Mono, monospace",
-  // "editor.fontFamily": "Maple Mono, monospace",
-  // "editor.fontFamily": "Ubuntu Mono, monospace",
-  // "editor.fontFamily": "Cascadia Code, monospace",
-  // "editor.fontFamily": "Monaspace Neon, monospace",
-  // "editor.fontFamily": "Monaspace Radon, monospace",
-  // "editor.fontLigatures": "'calt', 'ss03'",
-  "editor.fontLigatures": true,
 
   // ═════════════════════════════════════════════════════════
   // EDITOR: APPEARANCE
@@ -427,17 +432,33 @@
   "editor.roundedSelection": true,
   "editor.linkedEditing": true,
   "editor.matchBrackets": "never",
-  "editor.definitionLinkOpensInPeek": false,
-  "diffEditor.renderSideBySide": true,
-  "scm.diffDecorationsGutterVisibility": "always",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorWidth": 1,
+  "editor.cursorBlinking": "phase",
   "editor.fastScrollSensitivity": 15,
   "editor.scrollbar.verticalScrollbarSize": 6,
   "editor.overviewRulerBorder": true,
   "editor.hideCursorInOverviewRuler": false,
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "editor.guides.highlightActiveBracketPair": false,
+
+  // ═════════════════════════════════════════════════════════
+  // EDITOR: INDENTATION & WHITESPACE
+  // ═════════════════════════════════════════════════════════
   "editor.insertSpaces": true,
   "editor.indentSize": "tabSize",
+  "editor.tabSize": 2,
+  "files.trimTrailingWhitespace": true,
+
+  // ═════════════════════════════════════════════════════════
+  // EDITOR: NAVIGATION
+  // ═════════════════════════════════════════════════════════
+  "editor.definitionLinkOpensInPeek": false,
+  "editor.gotoLocation.alternativeDefinitionCommand": "",
+  "editor.gotoLocation.alternativeTypeDefinitionCommand": "",
+  // Force multiple definitions (e.g., TS interfaces) to teleport rather than peek
+  "editor.gotoLocation.multipleDefinitions": "goto",
+  "editor.gotoLocation.multipleTypeDefinitions": "goto",
 
   // ═════════════════════════════════════════════════════════
   // EDITOR: MINIMAP
@@ -481,6 +502,10 @@
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+
+  // ═════════════════════════════════════════════════════════
+  // SEARCH
+  // ═════════════════════════════════════════════════════════
   "search.showLineNumbers": true,
   "search.smartCase": true,
   "search.seedWithNearestWord": true,
@@ -495,9 +520,11 @@
     "workbench.panel.output": false,
   },
   "workbench.agentsWindowButton.enabled": false,
+  "workbench.layoutControl.enabled": false,
   "window.titleBarStyle": "custom",
   "window.title": "${activeFolderMedium} - (${activeEditorShort})",
   "window.zoomPerWindow": false,
+  "window.zoomLevel": 1,
   "window.autoDetectColorScheme": false,
 
   // ═════════════════════════════════════════════════════════
@@ -513,6 +540,7 @@
   "workbench.editor.labelFormat": "medium",
   "workbench.editor.enablePreview": true,
   "workbench.editor.enablePreviewFromCodeNavigation": true,
+  "workbench.editor.revealIfOpen": true,
 
   // ═════════════════════════════════════════════════════════
   // EXPLORER & FILE TREE
@@ -523,6 +551,8 @@
   "explorer.autoReveal": true,
   "explorer.openEditors.visible": 1,
   "workbench.tree.indent": 18,
+  "workbench.tree.renderIndentGuides": "always",
+  "symbols.hidesExplorerArrows": true,
   // File nesting
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.expand": false,
@@ -538,6 +568,7 @@
   // ═════════════════════════════════════════════════════════
   // BREADCRUMBS & OUTLINE
   // ═════════════════════════════════════════════════════════
+  "breadcrumbs.enabled": false,
   "breadcrumbs.symbolPath": "on",
   "breadcrumbs.showFunctions": true,
   "breadcrumbs.showVariables": true,
@@ -566,6 +597,9 @@
   "outline.icons": true,
   "outline.showProperties": false,
   "outline.showVariables": false,
+  "outline.showInterfaces": false,
+  "outline.showEnumMembers": false,
+  "outline.collapseItems": "alwaysCollapse",
 
   // ═════════════════════════════════════════════════════════
   // TERMINAL
@@ -586,6 +620,9 @@
   "gitlens.views.branches.branches.layout": "list",
   "gitlens.currentLine.scrollable": false,
   "gitlens.currentLine.enabled": false,
+  "diffEditor.renderSideBySide": true,
+  "diffEditor.ignoreTrimWhitespace": false,
+  "scm.diffDecorationsGutterVisibility": "always",
 
   // ═════════════════════════════════════════════════════════
   // ZEN MODE & SCREENCAST
@@ -681,6 +718,16 @@
   "vim.easymotion": true,
   "vim.sneak": true,
   "vim.useSystemClipboard": true,
+
+  // ═════════════════════════════════════════════════════════
+  // BOOKMARKS  —  triggered from the vim leader keybindings above
+  // ═════════════════════════════════════════════════════════
+  "bookmarks.navigateThroughAllFiles": true,
+  "bookmarks.saveBookmarksInProject": true,
+  "bookmarks.wrapNavigation": true,
+  "bookmarks.showBookmarkDecorationsInDebugMode": false,
+  "bookmarks.confirmClear": "always",
+
   // ═════════════════════════════════════════════════════════
   // CURSOR AI
   // ═════════════════════════════════════════════════════════
@@ -702,10 +749,25 @@
     "dvu_laptop_table": "macOS",
   },
 
+  // ═════════════════════════════════════════════════════════
+  // PEACOCK  —  window-border color values live in the COLORS
+  // section above (window.activeBorder / window.inactiveBorder)
+  // ═════════════════════════════════════════════════════════
+  "peacock.affectActivityBar": false,
+  "peacock.affectTitleBar": false,
+  "peacock.affectStatusBar": false,
+  "peacock.affectSashHover": false,
+  "peacock.affectWindowBorder": true,
+
+  // ═════════════════════════════════════════════════════════
+  // EXTENSION: tailwind-fold
+  // ═════════════════════════════════════════════════════════
   "tailwind-fold.unfoldIfLineSelected": true,
   "tailwind-fold.foldedText": "◦◦◦ ",
   "tailwind-fold.foldedTextColor": "#7FC9A8",
   "tailwind-fold.foldedTextBackgroundColor": "#282A36",
+  "tailwind-fold.autoFold": false,
+  "tailwind-fold.showTailwindImage": false,
 
   // ═════════════════════════════════════════════════════════
   // EXTENSION: inline-fold
@@ -719,6 +781,9 @@
     "javascript",
     "javascriptreact",
   ],
+  "inlineFold.togglePerFile": false,
+  "inlineFold.maskChar": "...",
+  "inlineFold.maskColor": "#DDD683",
 
   // ═════════════════════════════════════════════════════════
   // EXTENSIONS: misc (comments, pets, totaltypescript, datetime, background)
@@ -741,6 +806,7 @@
   "dateTime.padDays": true,
   "dateTime.padHours": false,
   "security.promptForLocalFileProtocolHandling": false,
+  "cSpell.userWords": ["repointing", "unstub"],
   "background.enabled": true,
   "background.editor": {
     "useFront": true,
@@ -755,42 +821,4 @@
     "interval": 0,
     "random": false,
   },
-  "inlineFold.togglePerFile": false,
-  "tailwind-fold.autoFold": false,
-  "tailwind-fold.showTailwindImage": false,
-  "inlineFold.maskChar": "...",
-  "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
-  "outline.collapseItems": "alwaysCollapse",
-  "outline.showInterfaces": false,
-  "outline.showEnumMembers": false,
-  "editor.gotoLocation.alternativeDefinitionCommand": "",
-  "editor.gotoLocation.alternativeTypeDefinitionCommand": "",
-
-  // Force multiple definitions (e.g., TS interfaces) to teleport rather than peek
-  "editor.gotoLocation.multipleDefinitions": "goto",
-  "editor.gotoLocation.multipleTypeDefinitions": "goto",
-  "peacock.affectActivityBar": false,
-  "peacock.affectTitleBar": false,
-  "peacock.affectStatusBar": false,
-  "peacock.affectSashHover": false,
-  "peacock.affectWindowBorder": true,
-  "workbench.editor.revealIfOpen": true,
-  "bookmarks.navigateThroughAllFiles": true,
-  "bookmarks.saveBookmarksInProject": true,
-  "bookmarks.wrapNavigation": true,
-  "bookmarks.showBookmarkDecorationsInDebugMode": false,
-  "bookmarks.confirmClear": "always",
-  "inlineFold.maskColor": "#DDD683",
-  "files.trimTrailingWhitespace": true,
-  "diffEditor.ignoreTrimWhitespace": false,
-  "symbols.hidesExplorerArrows": true,
-  "workbench.tree.renderIndentGuides": "always",
-  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
-  "editor.guides.highlightActiveBracketPair": false,
-  "workbench.layoutControl.enabled": false,
-  "breadcrumbs.enabled": false,
-  "editor.tabSize": 2,
-  "cSpell.userWords": ["repointing", "unstub"],
-  "window.zoomLevel": 1,
-  "editor.cursorBlinking": "phase",
 }
