@@ -22,7 +22,6 @@
   // ═════════════════════════════════════════════════════════
   "workbench.colorTheme": "Dracula Theme Soft",
   "workbench.productIconTheme": "fluent-icons",
-  "workbench.iconTheme": "simple-icons",
 
   // ═════════════════════════════════════════════════════════
   // COLORS — ALL SCOPED TO [Dracula Theme Soft]
@@ -250,6 +249,8 @@
   // ── Workbench / UI chrome colors (now fully scoped) ──
   "workbench.colorCustomizations": {
     "[Dracula Theme Soft]": {
+      "statusBarItem.remoteBackground": "#8458c1",
+      "statusBarItem.remoteForeground": "#111116",
       "editor.background": "#1e1f26",
       "activityBar.activeBackground": "#9580ff14",
       "activityBar.activeBorder": "#9580ff",
@@ -278,7 +279,6 @@
       "editor.wordHighlightStrongBorder": "#f26f9180",
       "editor.wordHighlightTextBorder": "#8fe0d080",
       "editorBracketHighlight.foreground1": "#8be9fd",
-      "editorBracketHighlight.foreground2": "#e5ec95",
       "editorBracketHighlight.foreground3": "#7eb6f6",
       "editorBracketHighlight.foreground4": "#7ee0a4",
       "editorBracketHighlight.unexpectedBracket.foreground": "#ff5555",
@@ -380,21 +380,10 @@
       "list.focusForeground": "#f8f8f2",
       "list.hoverForeground": "#f8f8f2",
       "editor.findMatchBorder": "#f0d75f",
-      "editorOverviewRuler.findMatchForeground": "#e2c974a0"
+      "editorOverviewRuler.findMatchForeground": "#e2c974a0",
     },
-    "statusBar.noFolderBackground": "#22212c",
-    "statusBar.debuggingBackground": "#22212c",
-    "statusBar.debuggingForeground": "#a0aac8",
-    "statusBar.background": "#22212c",
-    "editor.wordHighlightBackground": "#8be9fd30",
-    "editor.wordHighlightStrongBackground": "#ff79c640",
-    "editor.selectionHighlightBackground": "#6272a450",
-    "statusBar.foreground": "#a0aac8",
-    "activityBar.activeBackground": "#65c89b",
-    "activityBar.foreground": "#15202b",
-    "activityBar.inactiveForeground": "#15202b99",
-    "activityBarBadge.background": "#945bc4",
-    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#2d2415",
+    "statusBar.foreground": "#ffca80",
     "activityBarTop.activeBackground": "#65c89b",
     "activityBarTop.background": "#65c89b",
     "activityBarTop.foreground": "#15202b",
@@ -403,18 +392,12 @@
     "commandCenter.foreground": "#595959",
     "sash.hoverBorder": "#65c89b",
     "statusBarItem.hoverBackground": "#359268",
-    "statusBarItem.remoteBackground": "#f0e8f7",
-    "statusBarItem.remoteForeground": "#15202b",
-    "titleBar.activeBackground": "#42b883",
-    "titleBar.activeForeground": "#595959",
-    "titleBar.inactiveBackground": "#42b88399",
-    "titleBar.inactiveForeground": "#15202b99",
     "editorGroup.border": "#44475a",
     "panel.border": "#44475a",
     "window.activeBorder": "#c0b3ff",
     "window.inactiveBorder": "#c0b3ff",
     "sideBar.background": "#15161d",
-    "sideBar.border": "#3a3d4f"
+    "sideBar.border": "#3a3d4f",
   },
   "editor.fontSize": 14,
   "editor.lineHeight": 1.65,
@@ -447,11 +430,6 @@
   "editor.definitionLinkOpensInPeek": false,
   "diffEditor.renderSideBySide": true,
   "scm.diffDecorationsGutterVisibility": "always",
-
-  // ═════════════════════════════════════════════════════════
-  // EDITOR: CURSOR & SCROLL
-  // ═════════════════════════════════════════════════════════
-  "editor.cursorBlinking": "solid",
   "editor.cursorSmoothCaretAnimation": "on",
   "editor.cursorWidth": 1,
   "editor.fastScrollSensitivity": 15,
@@ -486,8 +464,6 @@
   // ═════════════════════════════════════════════════════════
   "editor.unfoldOnCursorMove": false,
   "editor.stickyScroll.enabled": false,
-  "editor.stickyScroll.defaultModel": "indentationModel",
-  "editor.stickyScroll.maxLineCount": 1,
 
   // ═════════════════════════════════════════════════════════
   // FORMATTING
@@ -536,7 +512,7 @@
   "workbench.editor.tabActionCloseVisibility": false,
   "workbench.editor.labelFormat": "medium",
   "workbench.editor.enablePreview": true,
-  "workbench.editor.enablePreviewFromCodeNavigation": true
+  "workbench.editor.enablePreviewFromCodeNavigation": true,
 
   // ═════════════════════════════════════════════════════════
   // EXPLORER & FILE TREE
@@ -605,13 +581,11 @@
   // ═════════════════════════════════════════════════════════
   "git.decorations.enabled": true,
   "git.openDiffOnClick": false,
-  "problems.decorations.enabled": false,
   "gitlens.plusFeatures.enabled": false,
   "gitlens.views.branches.files.layout": "list",
   "gitlens.views.branches.branches.layout": "list",
   "gitlens.currentLine.scrollable": false,
   "gitlens.currentLine.enabled": false,
-  "gitlens.hovers.currentLine.over": "line",
 
   // ═════════════════════════════════════════════════════════
   // ZEN MODE & SCREENCAST
@@ -631,7 +605,6 @@
   // ACCESSIBILITY
   // ═════════════════════════════════════════════════════════
   "accessibility.dimUnfocused.enabled": false,
-  "accessibility.dimUnfocused.opacity": 0.85,
   "accessibility.accessibleView.closeOnKeyPress": false,
 
   // ═════════════════════════════════════════════════════════
@@ -787,7 +760,6 @@
   "tailwind-fold.showTailwindImage": false,
   "inlineFold.maskChar": "...",
   "terminal.integrated.fontFamily": "JetBrainsMono Nerd Font",
-  "hideComments.regex": [],
   "outline.collapseItems": "alwaysCollapse",
   "outline.showInterfaces": false,
   "outline.showEnumMembers": false,
@@ -819,4 +791,6 @@
   "breadcrumbs.enabled": false,
   "editor.tabSize": 2,
   "cSpell.userWords": ["repointing", "unstub"],
+  "window.zoomLevel": 1,
+  "editor.cursorBlinking": "phase",
 }
