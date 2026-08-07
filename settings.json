@@ -223,7 +223,7 @@
         // JSX child text
         {
           "scope": ["meta.jsx.children.tsx", "meta.jsx.children.js"],
-          "settings": { "foreground": "#8b9e89" },
+          "settings": { "foreground": "#9a899e", "fontStyle": "italic" },
         },
         {
           "scope": [
@@ -470,11 +470,11 @@
     },
     "window.activeBorder": "#c0b3ff",
     "window.inactiveBorder": "#c0b3ff",
-    "statusBar.background": "#2d2415",
-    "statusBar.noFolderBackground": "#2d2415",
-    "statusBar.debuggingBackground": "#2d2415",
-    "statusBar.foreground": "#ffca80",
-    "statusBar.debuggingForeground": "#ffca80",
+    "statusBar.background": "#22212c",
+    "statusBar.noFolderBackground": "#22212c",
+    "statusBar.debuggingBackground": "#22212c",
+    "statusBar.foreground": "#a0aac8",
+    "statusBar.debuggingForeground": "#a0aac8",
   },
 
   // ═════════════════════════════════════════════════════════
