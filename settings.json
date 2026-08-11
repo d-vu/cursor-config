@@ -30,11 +30,11 @@
   "editor.lineHeight": 1.65,
   // Alternates:
   // "editor.fontFamily": "JetBrains Mono, monospace",
-  // "editor.fontFamily": "DejaVu Sans Mono, monospace",
+  "editor.fontFamily": "DejaVu Sans Mono, monospace",
   // "editor.fontFamily": "Inter, monospace",
   // "editor.fontFamily": "Google Sans Code",
-  // "editor.fontFamily": "Geist Mono, monospace",
-  // "editor.fontFamily": "Maple Mono, monospace",
+  "editor.fontFamily": "Geist Mono, monospace",
+  "editor.fontFamily": "Maple Mono, monospace",
   // "editor.fontFamily": "Ubuntu Mono, monospace",
   // "editor.fontFamily": "Cascadia Code, monospace",
   // "editor.fontFamily": "Monaspace Neon, monospace",
@@ -152,7 +152,8 @@
             "constant.language.boolean.true.ts",
             "constant.language.boolean.true",
           ],
-          "settings": { "foreground": "#b8cc77" },
+          "settings": { "foreground": "#bfd86e" },
+          // "settings": { "foreground": "#d4d4d4" },
         },
         // Booleans falsy + null + undefined
         {
@@ -161,8 +162,10 @@
             "constant.language.boolean.false",
             "constant.language.null.ts",
             "constant.language.undefined.ts",
+            "constant.language.undefined.tsx",
           ],
-          "settings": { "foreground": "#aec072" },
+          // "settings": { "foreground": "#aec072" },
+          "settings": { "foreground": "#b7e228" },
         },
 
         // Parameters (reserved white)
@@ -190,7 +193,7 @@
         // React components (capitalized) → coral
         {
           "scope": ["support.class.component", "support.class.component.tsx"],
-          "settings": { "foreground": "#ff9580" },
+          "settings": { "foreground": "#ec8157" },
         },
         // Operators
         {
@@ -221,9 +224,10 @@
           "settings": { "foreground": "#7fc9a8" },
         },
         // JSX child text
+        // "settings": { "foreground": "#9a899e" },
         {
           "scope": ["meta.jsx.children.tsx", "meta.jsx.children.js"],
-          "settings": { "foreground": "#9a899e", "fontStyle": "italic" },
+          "settings": { "foreground": "#d5ccd7f3" },
         },
         {
           "scope": [
@@ -231,7 +235,7 @@
             "comment.block.documentation",
             "punctuation.definition.comment",
           ],
-          "settings": { "foreground": "#8a8a92", "fontStyle": "" },
+          "settings": { "foreground": "#8a8a92", "fontStyle": "italic" },
         },
 
         {
@@ -271,7 +275,7 @@
     "[Dracula Theme Soft]": {
       "statusBarItem.remoteBackground": "#8458c1",
       "statusBarItem.remoteForeground": "#111116",
-      "editor.background": "#201a2c",
+      "editor.background": "#241b35",
       "activityBar.background": "#110f17",
       "activityBar.activeBackground": "#9580ff14",
       "activityBar.activeBorder": "#9580ff",
@@ -348,12 +352,12 @@
       "list.hoverBackground": "#9580ff1a",
       "list.inactiveSelectionBackground": "#9580ff2a",
       "minimap.errorHighlight": "#ff958080",
-      "minimap.findMatchHighlight": "#ffffa5ff",
-      "minimap.selectionHighlight": "#9580ffff",
+      "minimap.findMatchHighlight": "#ffffa5b9",
+      "minimap.selectionHighlight": "#9580ff6c",
       "minimap.warningHighlight": "#ffca8080",
       "minimapSlider.activeBackground": "#9580ff70",
-      "minimapSlider.background": "#9580ff30",
-      "minimapSlider.hoverBackground": "#9580ff50",
+      "minimapSlider.background": "#9580ff17",
+      "minimapSlider.hoverBackground": "#9580ff31",
       "peekView.border": "#9580ff50",
       "peekViewEditor.background": "#282a36",
       "peekViewEditor.matchHighlightBackground": "#9580ff1c",
@@ -465,16 +469,16 @@
       "statusBarItem.hoverBackground": "#9580ff30",
       "editorGroup.border": "#44475a",
       "panel.border": "#44475a",
-      "sideBar.background": "#201a2c",
+      "sideBar.background": "#241b35",
       "sideBar.border": "#3a3d4f",
     },
     "window.activeBorder": "#c0b3ff",
     "window.inactiveBorder": "#c0b3ff",
-    "statusBar.background": "#22212c",
-    "statusBar.noFolderBackground": "#22212c",
-    "statusBar.debuggingBackground": "#22212c",
-    "statusBar.foreground": "#a0aac8",
-    "statusBar.debuggingForeground": "#a0aac8",
+    "statusBar.background": "#32634a",
+    "statusBar.noFolderBackground": "#32634a",
+    "statusBar.debuggingBackground": "#32634a",
+    "statusBar.foreground": "#8aff80",
+    "statusBar.debuggingForeground": "#8aff80",
   },
 
   // ═════════════════════════════════════════════════════════
@@ -516,15 +520,6 @@
   // Force multiple definitions (e.g., TS interfaces) to teleport rather than peek
   "editor.gotoLocation.multipleDefinitions": "goto",
   "editor.gotoLocation.multipleTypeDefinitions": "goto",
-
-  // ═════════════════════════════════════════════════════════
-  // EDITOR: MINIMAP
-  // ═════════════════════════════════════════════════════════
-  "editor.minimap.renderCharacters": false,
-  "editor.minimap.size": "fit",
-  "editor.minimap.scale": 1,
-  "editor.minimap.maxColumn": 80,
-  "editor.minimap.showSlider": "always",
 
   // ═════════════════════════════════════════════════════════
   // EDITOR: HOVER & INLAY HINTS
@@ -672,14 +667,13 @@
   // GIT, DIFF & GITLENS
   // ═════════════════════════════════════════════════════════
   "git.decorations.enabled": true,
-  "git.openDiffOnClick": false,
+  // "git.openDiffOnClick": false,
   "gitlens.plusFeatures.enabled": false,
   "gitlens.views.branches.files.layout": "list",
   "gitlens.views.branches.branches.layout": "list",
   "gitlens.currentLine.enabled": false,
   "diffEditor.renderSideBySide": true,
   "diffEditor.ignoreTrimWhitespace": false,
-  "scm.diffDecorationsGutterVisibility": "always",
 
   // ═════════════════════════════════════════════════════════
   // ZEN MODE & SCREENCAST
@@ -818,11 +812,10 @@
   // EXTENSION: tailwind-fold
   // ═════════════════════════════════════════════════════════
   "tailwind-fold.unfoldIfLineSelected": true,
-  "tailwind-fold.foldedText": "◦◦◦ ",
+  "tailwind-fold.foldedText": "",
   "tailwind-fold.foldedTextColor": "#7FC9A8",
   "tailwind-fold.foldedTextBackgroundColor": "#282A36",
-  "tailwind-fold.autoFold": false,
-  "tailwind-fold.showTailwindImage": false,
+  "tailwind-fold.autoFold": true,
 
   // ═════════════════════════════════════════════════════════
   // EXTENSION: inline-fold
@@ -859,14 +852,14 @@
   "dateTime.padDays": true,
   "dateTime.padHours": false,
   "security.promptForLocalFileProtocolHandling": false,
-  "cSpell.userWords": ["repointing", "unstub"],
+  "cSpell.userWords": ["Favorited", "nums", "Priya", "repointing", "unstub"],
   "background.enabled": true,
   "background.editor": {
     "useFront": true,
     "style": {
       "background-position": "0px 0px",
       "background-size": "cover",
-      "opacity": 0.01,
+      "opacity": 0.03,
     },
     "images": [
       "data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAwIiBoZWlnaHQ9IjkwMCI+PGRlZnM+PHBhdHRlcm4gaWQ9ImciIHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTTAuNSAwVjIwTTAgMC41SDIwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjE2MDAiIGhlaWdodD0iOTAwIiBmaWxsPSJ1cmwoI2cpIi8+PC9zdmc+Cg==",
@@ -874,4 +867,9 @@
     "interval": 0,
     "random": false,
   },
+  "editor.minimap.showSlider": "always",
+  "editor.minimap.maxColumn": 80,
+  "editor.minimap.scale": 2,
+  "editor.minimap.markSectionHeaderRegex": "\\bSECTION:\\s*(?<separator>-?)\\s*(?<label>.*)$",
+  "editor.minimap.side": "left",
 }

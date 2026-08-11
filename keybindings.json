@@ -226,4 +226,20 @@
       ],
     },
   },
+  {
+    "key": "alt+cmd+left",
+    "command": "workbench.action.increaseViewWidth",
+  },
+  {
+    "key": "alt+cmd+right",
+    "command": "workbench.action.decreaseViewWidth",
+  },
+  {
+    "key": "alt+cmd+down",
+    "command": "workbench.action.increaseViewHeight",
+  },
+  {
+    "key": "alt+cmd+up",
+    "command": "workbench.action.decreaseViewHeight",
+  },
 ]
