@@ -3,19 +3,19 @@
   // MODE TOGGLE — flip comments to switch
   // ═════════════════════════════════════════════════════════
   // ── CODING MODE (quiet: no lint, no error lines) ──
-  // "typescript.validate.enable": false,
-  // "javascript.validate.enable": false,
-  // "editor.renderValidationDecorations": "off",
-  // "errorLens.enabled": false,
-  // "eslint.enable": false,
-  // "editor.showUnused": false,
-  // "editor.showDeprecated": false,
+  "typescript.validate.enable": false,
+  "javascript.validate.enable": false,
+  "editor.renderValidationDecorations": "off",
+  "errorLens.enabled": false,
+  "eslint.enable": false,
+  "editor.showUnused": false,
+  "editor.showDeprecated": false,
   // ── REVIEW MODE (full diagnostics) ──
-  "typescript.validate.enable": true,
-  "javascript.validate.enable": true,
-  "editor.renderValidationDecorations": "on",
-  "errorLens.enabled": true,
-  "problems.decorations.enabled": true,
+  // "typescript.validate.enable": true,
+  // "javascript.validate.enable": true,
+  // "editor.renderValidationDecorations": "on",
+  // "errorLens.enabled": true,
+  // "problems.decorations.enabled": true,
 
   // ═════════════════════════════════════════════════════════
   // THEME & ICONS
@@ -138,7 +138,12 @@
         },
         // Built-in vars (this, super)
         {
-          "scope": ["variable.language.this.ts", "meta.object.member"],
+          "scope": [
+            "variable.language.this.ts",
+            "meta.object.member",
+            "punctuation.accessor.tsx",
+            "punctuation.accessor.optional.tsx",
+          ],
           "settings": { "foreground": "#e668af" },
         },
         // Types / primitives
@@ -163,6 +168,11 @@
             "constant.language.null.ts",
             "constant.language.undefined.ts",
             "constant.language.undefined.tsx",
+            "constant.language.null",
+            "constant.language.null.ts",
+            "constant.language.null.tsx",
+            "constant.language.undefined",
+            "constant.language.undefined.ts",
           ],
           // "settings": { "foreground": "#aec072" },
           "settings": { "foreground": "#b7e228" },
@@ -474,11 +484,11 @@
     },
     "window.activeBorder": "#c0b3ff",
     "window.inactiveBorder": "#c0b3ff",
-    "statusBar.background": "#32634a",
-    "statusBar.noFolderBackground": "#32634a",
-    "statusBar.debuggingBackground": "#32634a",
-    "statusBar.foreground": "#8aff80",
-    "statusBar.debuggingForeground": "#8aff80",
+    "statusBar.background": "#22212c",
+    "statusBar.noFolderBackground": "#22212c",
+    "statusBar.debuggingBackground": "#22212c",
+    "statusBar.foreground": "#a0aac8",
+    "statusBar.debuggingForeground": "#a0aac8",
   },
 
   // ═════════════════════════════════════════════════════════
@@ -853,7 +863,7 @@
   "dateTime.padHours": false,
   "security.promptForLocalFileProtocolHandling": false,
   "cSpell.userWords": ["Favorited", "nums", "Priya", "repointing", "unstub"],
-  "background.enabled": true,
+  "background.enabled": false,
   "background.editor": {
     "useFront": true,
     "style": {
@@ -871,5 +881,6 @@
   "editor.minimap.maxColumn": 80,
   "editor.minimap.scale": 2,
   "editor.minimap.markSectionHeaderRegex": "\\bSECTION:\\s*(?<separator>-?)\\s*(?<label>.*)$",
-  "editor.minimap.side": "left",
+  "editor.minimap.enabled": true,
+  "window.zoomLevel": 1,
 }
