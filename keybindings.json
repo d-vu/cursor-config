@@ -4,8 +4,36 @@
   // ════════════════════════════════════════════════════════════════
   { "key": "ctrl+-", "command": "workbench.action.navigateBack" },
   { "key": "ctrl+shift+-", "command": "workbench.action.navigateForward" },
-  { "key": "cmd+p", "command": "workbench.action.quickOpen" },
   { "key": "cmd+o", "command": "workbench.action.openRecent" },
+
+  // ════════════════════════════════════════════════════════════════
+  // PICKERS — files, symbols, text
+  // ════════════════════════════════════════════════════════════════
+  // Cmd+P lists only open tabs, most recently used first
+  {
+    "key": "cmd+p",
+    "command": "workbench.action.showAllEditorsByMostRecentlyUsed",
+  },
+  // Current file's symbols, grouped under type headings
+  {
+    "key": "cmd+shift+o",
+    "command": "workbench.action.quickOpen",
+    "args": "@:",
+  },
+  // Workspace-wide text search
+  { "key": "alt+f", "command": "workbench.action.findInFiles" },
+  // Focus the file tree, then open its filter field, from anywhere
+  {
+    "key": "cmd+shift+f",
+    "command": "runCommands",
+    "args": {
+      "commands": ["workbench.files.action.focusFilesExplorer", "list.find"],
+    },
+  },
+  // Placeholder: whole-workspace file search, now that cmd+p is open-tabs only
+  // { "key": "alt+p", "command": "workbench.action.quickOpen" },
+  // Placeholder: fires while typing a capital E — needs a "when" before re-enabling
+  // { "key": "shift+e", "command": "workbench.action.showAllEditorsByMostRecentlyUsed" },
 
   // ════════════════════════════════════════════════════════════════
   // TABS
@@ -49,14 +77,11 @@
   { "key": "shift+cmd+t", "command": "workbench.action.reopenClosedEditor" },
 
   // ════════════════════════════════════════════════════════════════
-  // SPLITS
+  // SPLITS & LAYOUT
   // ════════════════════════════════════════════════════════════════
   // ── Create (chords: cmd+r, then the second key) ──
   { "key": "cmd+r cmd+shift+d", "command": "workbench.action.splitEditorDown" },
-  {
-    "key": "cmd+r cmd+d",
-    "command": "workbench.action.splitEditorRight",
-  },
+  { "key": "cmd+r cmd+d", "command": "workbench.action.splitEditorRight" },
   // ── Focus by number (9 = last; no ninth-group command) ──
   { "key": "ctrl+1", "command": "workbench.action.focusFirstEditorGroup" },
   { "key": "ctrl+2", "command": "workbench.action.focusSecondEditorGroup" },
@@ -94,15 +119,21 @@
     "key": "ctrl+w right",
     "command": "workbench.action.moveEditorToRightGroup",
   },
+  // ── Split proportions ──
+  { "key": "ctrl+0", "command": "workbench.action.evenEditorWidths" },
+  {
+    "key": "cmd+r cmd+[",
+    "command": "vscode.setEditorLayout",
+    "args": { "orientation": 0, "groups": [{ "size": 0.7 }, { "size": 0.3 }] },
+  },
+  {
+    "key": "cmd+r cmd+]",
+    "command": "vscode.setEditorLayout",
+    "args": { "orientation": 0, "groups": [{ "size": 0.3 }, { "size": 0.7 }] },
+  },
   // Placeholder: move tab within a split (keys now used by resize)
-  // {
-  //   "key": "cmd+alt+left",
-  //   "command": "workbench.action.moveEditorLeftInGroup",
-  // },
-  // {
-  //   "key": "cmd+alt+right",
-  //   "command": "workbench.action.moveEditorRightInGroup",
-  // },
+  // { "key": "cmd+alt+left", "command": "workbench.action.moveEditorLeftInGroup" },
+  // { "key": "cmd+alt+right", "command": "workbench.action.moveEditorRightInGroup" },
 
   // ════════════════════════════════════════════════════════════════
   // VIEW SIZE & ZOOM
@@ -124,17 +155,9 @@
   // ════════════════════════════════════════════════════════════════
   // SIDEBARS, PANELS & UI TOGGLES
   // ════════════════════════════════════════════════════════════════
-  // ── Sidebar views ──
   { "key": "cmd+\\", "command": "workbench.action.toggleSidebarVisibility" },
   { "key": "alt+cmd+1", "command": "workbench.view.extension.tabStack" },
   { "key": "alt+cmd+2", "command": "workbench.view.extension.bookmarks" },
-  {
-    "key": "cmd+shift+r",
-    "command": "workbench.files.action.showActiveFileInExplorer",
-  },
-  // ── Terminal ──
-  { "key": "ctrl+`", "command": "workbench.action.terminal.toggleTerminal" },
-  // ── UI toggles ──
   { "key": "cmd+b", "command": "breadcrumbs.toggle" },
   {
     "key": "cmd+shift+b",
@@ -142,10 +165,46 @@
   },
   { "key": "cmd+m", "command": "editor.action.toggleMinimap" },
   { "key": "cmd+shift+i", "command": "workbench.action.selectIconTheme" },
+  // ── Panel position ──
+  {
+    "key": "ctrl+shift+`",
+    "command": "workbench.action.positionPanelRight",
+    "when": "panelPosition == 'bottom'",
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "workbench.action.positionPanelBottom",
+    "when": "panelPosition != 'bottom'",
+  },
 
   // ════════════════════════════════════════════════════════════════
-  // EXPLORER — arrow keys preview each file as you move
+  // EXPLORER
   // ════════════════════════════════════════════════════════════════
+  // ── Reveal ──
+  {
+    "key": "cmd+shift+r",
+    "command": "workbench.files.action.showActiveFileInExplorer",
+  },
+  // Collapse all folders, then expand only the path to the current file
+  {
+    "key": "alt+r",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "workbench.files.action.collapseExplorerFolders",
+        "workbench.files.action.showActiveFileInExplorer",
+      ],
+    },
+  },
+  {
+    "key": "cmd+r cmd+o",
+    "command": "workbench.action.files.revealActiveFileInWindows",
+  },
+  {
+    "key": "cmd+r r",
+    "command": "-workbench.action.files.revealActiveFileInWindows",
+  },
+  // ── Arrow keys preview each file as you move ──
   {
     "key": "down",
     "command": "runCommands",
@@ -161,6 +220,60 @@
       "commands": ["list.focusUp", "filesExplorer.openFilePreserveFocus"],
     },
     "when": "filesExplorerFocus && !inputFocus",
+  },
+  // ── Collapse the folder you're in (press again to go up a level) ──
+  {
+    "key": "ctrl+shift+left",
+    "command": "runCommands",
+    "args": { "commands": ["list.focusParent", "list.collapse"] },
+    "when": "filesExplorerFocus && !inputFocus",
+  },
+  {
+    "key": "ctrl+shift+right",
+    "command": "list.expand",
+    "when": "filesExplorerFocus && !inputFocus",
+  },
+
+  // ════════════════════════════════════════════════════════════════
+  // OUTLINE — arrow keys jump to each symbol as you move
+  // ════════════════════════════════════════════════════════════════
+  {
+    "key": "down",
+    "command": "runCommands",
+    "args": { "commands": ["list.focusDown", "list.selectAndPreserveFocus"] },
+    "when": "focusedView == 'outline' && listFocus && !inputFocus",
+  },
+  {
+    "key": "up",
+    "command": "runCommands",
+    "args": { "commands": ["list.focusUp", "list.selectAndPreserveFocus"] },
+    "when": "focusedView == 'outline' && listFocus && !inputFocus",
+  },
+  // Placeholder: toggle focus between the editor and the Outline
+  // { "key": "cmd+shift+o", "command": "outline.focus", "when": "focusedView != 'outline'" },
+  // { "key": "cmd+shift+o", "command": "workbench.action.focusActiveEditorGroup", "when": "focusedView == 'outline'" },
+
+  // ════════════════════════════════════════════════════════════════
+  // SOURCE CONTROL — arrow keys open each changed file as you move
+  // ════════════════════════════════════════════════════════════════
+  { "key": "cmd+shift+g", "command": "workbench.view.scm" },
+  {
+    "key": "down",
+    "command": "runCommands",
+    "args": { "commands": ["list.focusDown", "list.selectAndPreserveFocus"] },
+    "when": "activeViewlet == 'workbench.view.scm' && listFocus && !inputFocus",
+  },
+  {
+    "key": "up",
+    "command": "runCommands",
+    "args": { "commands": ["list.focusUp", "list.selectAndPreserveFocus"] },
+    "when": "activeViewlet == 'workbench.view.scm' && listFocus && !inputFocus",
+  },
+  // Open the diff for the file you're on, instead of the file itself
+  {
+    "key": "cmd+shift+h",
+    "command": "git.openChange",
+    "when": "editorTextFocus",
   },
 
   // ════════════════════════════════════════════════════════════════
@@ -194,26 +307,14 @@
     "when": "editorTextFocus && foldingEnabled",
   },
   {
-    "key": "ctrl+0",
-    "command": "editor.unfoldAll",
-    "when": "editorTextFocus && foldingEnabled",
-  },
-  {
     "key": "ctrl+\\",
     "command": "editor.unfoldAll",
     "when": "editorTextFocus && foldingEnabled",
   },
-  // ── Marker regions (placeholder: keys taken by move-to-split) ──
-  // {
-  //   "key": "ctrl+shift+8",
-  //   "command": "editor.foldAllMarkerRegions",
-  //   "when": "editorTextFocus && foldingEnabled",
-  // },
-  // {
-  //   "key": "ctrl+shift+9",
-  //   "command": "editor.unfoldAllMarkerRegions",
-  //   "when": "editorTextFocus && foldingEnabled",
-  // },
+  // Placeholders: alt+f now opens Find in Files, ctrl+shift+8/9 are move-to-split
+  // { "key": "ctrl+alt+f", "command": "editor.createFoldingRangeFromSelection", "when": "editorTextFocus && editorHasSelection" },
+  // { "key": "ctrl+shift+8", "command": "editor.foldAllMarkerRegions", "when": "editorTextFocus && foldingEnabled" },
+  // { "key": "ctrl+shift+9", "command": "editor.unfoldAllMarkerRegions", "when": "editorTextFocus && foldingEnabled" },
 
   // ════════════════════════════════════════════════════════════════
   // EDITING
@@ -244,13 +345,13 @@
   },
 
   // ════════════════════════════════════════════════════════════════
-  // GIT
+  // TERMINAL
   // ════════════════════════════════════════════════════════════════
-  { "key": "cmd+shift+g", "command": "workbench.view.scm" },
+  { "key": "ctrl+`", "command": "workbench.action.terminal.toggleTerminal" },
   {
-    "key": "cmd+shift+h",
-    "command": "git.openChange",
-    "when": "editorTextFocus",
+    "key": "cmd+d",
+    "command": "workbench.action.terminal.split",
+    "when": "terminalFocus",
   },
 
   // ════════════════════════════════════════════════════════════════
@@ -280,6 +381,29 @@
   { "key": "alt+cmd+o", "command": "bookmarks.listFromAllFiles" },
 
   // ════════════════════════════════════════════════════════════════
+  // DIAGNOSTICS — coding / review mode toggle
+  // ════════════════════════════════════════════════════════════════
+  {
+    "key": "cmd+shift+alt+e",
+    "command": "settings.cycle",
+    "args": {
+      "id": "toggle-diagnostics",
+      "values": [
+        {
+          "typescript.validate.enable": true,
+          "javascript.validate.enable": true,
+          "editor.renderValidationDecorations": "on",
+        },
+        {
+          "typescript.validate.enable": false,
+          "javascript.validate.enable": false,
+          "editor.renderValidationDecorations": "off",
+        },
+      ],
+    },
+  },
+
+  // ════════════════════════════════════════════════════════════════
   // MOVED DEFAULTS — frees alt+cmd+b, alt+cmd+o, shift+cmd+v
   // ════════════════════════════════════════════════════════════════
   // ── Secondary sidebar: alt+cmd+b → new chord ──
@@ -303,157 +427,10 @@
   },
   { "key": "alt+cmd+o", "command": "-editor.action.toggleOvertypeInsertMode" },
   // ── Markdown preview: shift+cmd+v → cmd+r cmd+r ──
+  { "key": "cmd+r cmd+r", "command": "markdown.showPreview" },
   {
     "key": "shift+cmd+v",
     "command": "-markdown.showPreview",
     "when": "!notebookEditorFocused && editorLangId == 'markdown'",
-  },
-
-  // ════════════════════════════════════════════════════════════════
-  // DIAGNOSTICS — coding / review mode toggle
-  // ════════════════════════════════════════════════════════════════
-  {
-    "key": "cmd+shift+alt+e",
-    "command": "settings.cycle",
-    "args": {
-      "id": "toggle-diagnostics",
-      "values": [
-        {
-          "typescript.validate.enable": true,
-          "javascript.validate.enable": true,
-          "editor.renderValidationDecorations": "on",
-        },
-        {
-          "typescript.validate.enable": false,
-          "javascript.validate.enable": false,
-          "editor.renderValidationDecorations": "off",
-        },
-      ],
-    },
-  },
-  {
-    "key": "cmd+d",
-    "command": "workbench.action.terminal.split",
-    "when": "terminalFocus",
-  },
-  // Explorer: collapse every folder in the tree
-  // Explorer: close the folder you're in (press again to go up a level)
-  {
-    "key": "ctrl+shift+left",
-    "command": "runCommands",
-    "args": { "commands": ["list.focusParent", "list.collapse"] },
-    "when": "filesExplorerFocus && !inputFocus",
-  },
-  // Explorer: expand the selected folder
-  {
-    "key": "ctrl+shift+right",
-    "command": "list.expand",
-    "when": "filesExplorerFocus && !inputFocus",
-  },
-  {
-    "key": "ctrl+shift+`",
-    "command": "workbench.action.positionPanelRight",
-    "when": "panelPosition == 'bottom'",
-  },
-  {
-    "key": "ctrl+shift+`",
-    "command": "workbench.action.positionPanelBottom",
-    "when": "panelPosition != 'bottom'",
-  },
-  {
-    "key": "alt+f",
-    "command": "editor.createFoldingRangeFromSelection",
-    "when": "editorTextFocus && editorHasSelection",
-  },
-  {
-    "key": "ctrl+0",
-    "command": "workbench.action.evenEditorWidths",
-  },
-  {
-    "key": "cmd+r cmd+[",
-    "command": "vscode.setEditorLayout",
-    "args": { "orientation": 0, "groups": [{ "size": 0.7 }, { "size": 0.3 }] },
-  },
-  {
-    "key": "cmd+r cmd+]",
-    "command": "vscode.setEditorLayout",
-    "args": { "orientation": 0, "groups": [{ "size": 0.3 }, { "size": 0.7 }] },
-  },
-  {
-    "key": "cmd+r cmd+o",
-    "command": "workbench.action.files.revealActiveFileInWindows",
-  },
-  {
-    "key": "cmd+r r",
-    "command": "-workbench.action.files.revealActiveFileInWindows",
-  },
-  // ════════════════════════════════════════════════════════════════
-  // OUTLINE — arrow keys jump to each symbol as you move
-  // ════════════════════════════════════════════════════════════════
-  {
-    "key": "down",
-    "command": "runCommands",
-    "args": {
-      "commands": ["list.focusDown", "list.selectAndPreserveFocus"],
-    },
-    "when": "focusedView == 'outline' && listFocus && !inputFocus",
-  },
-  {
-    "key": "up",
-    "command": "runCommands",
-    "args": {
-      "commands": ["list.focusUp", "list.selectAndPreserveFocus"],
-    },
-    "when": "focusedView == 'outline' && listFocus && !inputFocus",
-  },
-  // {
-  //   "key": "cmd+shift+o",
-  //   "command": "outline.focus",
-  //   "when": "focusedView != 'outline'"
-  // },
-  // {
-  //   "key": "cmd+shift+o",
-  //   "command": "workbench.action.focusActiveEditorGroup",
-  //   "when": "focusedView == 'outline'"
-  // },
-  {
-    // Open the current file's symbols already grouped under type headings
-    "key": "cmd+shift+o",
-    "command": "workbench.action.quickOpen",
-    "args": "@:",
-  },
-  {
-    // Focus the file tree, then open its filter field, from anywhere
-    "key": "cmd+shift+f",
-    "command": "runCommands",
-    "args": {
-      "commands": ["workbench.files.action.focusFilesExplorer", "list.find"],
-    },
-  },
-  {
-    // Open workspace-wide text search
-    "key": "alt+f",
-    "command": "workbench.action.findInFiles",
-  },
-  {
-    // Fuzzy picker limited to open files, most recently used first
-    "key": "shift+e",
-    "command": "workbench.action.showAllEditorsByMostRecentlyUsed",
-  },
-  {
-    // Cmd+P shows only currently open tabs, most recently used first
-    "key": "cmd+p",
-    "command": "workbench.action.showAllEditorsByMostRecentlyUsed",
-  },
-  {
-    // Collapse all folders, then expand only the path to the current file
-    "key": "alt+r",
-    "command": "runCommands",
-    "args": {
-      "commands": [
-        "workbench.files.action.collapseExplorerFolders",
-        "workbench.files.action.showActiveFileInExplorer",
-      ],
-    },
   },
 ]
