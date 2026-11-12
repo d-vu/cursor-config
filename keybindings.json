@@ -261,13 +261,37 @@
     "key": "down",
     "command": "runCommands",
     "args": { "commands": ["list.focusDown", "list.selectAndPreserveFocus"] },
-    "when": "activeViewlet == 'workbench.view.scm' && listFocus && !inputFocus",
+    "when": "focusedView == 'workbench.scm' && listFocus && !inputFocus",
   },
   {
     "key": "up",
     "command": "runCommands",
     "args": { "commands": ["list.focusUp", "list.selectAndPreserveFocus"] },
-    "when": "activeViewlet == 'workbench.view.scm' && listFocus && !inputFocus",
+    "when": "focusedView == 'workbench.scm' && listFocus && !inputFocus",
+  },
+  {
+    "key": "down",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "list.focusDown",
+        "list.selectAndPreserveFocus",
+        "list.expand",
+      ],
+    },
+    "when": "focusedView == 'workbench.scm' && listFocus && !inputFocus",
+  },
+  {
+    "key": "up",
+    "command": "runCommands",
+    "args": {
+      "commands": [
+        "list.focusUp",
+        "list.selectAndPreserveFocus",
+        "list.expand",
+      ],
+    },
+    "when": "focusedView == 'workbench.scm' && listFocus && !inputFocus",
   },
   // Open the diff for the file you're on, instead of the file itself
   {
